@@ -519,14 +519,62 @@ const DATA = [
    {n:"Entrega", t:"10 min", who:"Encargado", steps:[
      ["Revisión final con luz, enviar fotos y pedir reseña.","10 min","Brillo uniforme, sin residuo en molduras",""]]}
  ]},
-{cat:"Adicionales", id:"faros", ico:"💡", title:"Faros", total:"1 h", who:"1 persona", prod:"Restauración / pulido de faros", draft:true,
- note:["rule","BORRADOR — este servicio NO tiene SOP formal de Mackey. Lo de abajo es una referencia preliminar, NO el proceso oficial. No lo sigas como definitivo. Pendiente: Mackey dicta su método y se reemplaza."],
+{cat:"Adicionales", id:"faros", ico:"💡", title:"Faros", total:"1–4 h", who:"1 persona", prod:"Restauración con tren de lijado · diagnóstico primero",
  flow:[
-   {n:"Faros — referencia preliminar (borrador)", t:"1 h", who:"Técnico", steps:[
-     ["Limpiar el faro y enmascarar con cinta la pintura y molduras alrededor.","10 min","Pintura protegida","Pulir sin enmascarar (daña la pintura)"],
-     ["Lijar en húmedo en secuencia de granos (de más grueso a más fino) hasta uniformar el amarilleo.","20 min","Faro parejo y mate sin zonas saltadas","Saltarse granos (quedan marcas)"],
-     ["Pulir con pulimento + pad hasta recuperar la transparencia.","15 min","Faro transparente y brillante",""],
-     ["Aplicar sellador/protección UV para que no vuelva a amarillear pronto y retirar la cinta.","15 min","Faro sellado","No sellar (vuelve a opacarse rápido)"]]}
+   {n:"Diagnóstico (antes de lijar)", t:"10 min", who:"Técnico",
+    note:["info","Evalúa el faro ANTES de elegir el tren. Define: (1) sí se puede restaurar, (2) mejora pero no queda perfecto, (3) no conviene (daño interno o estructural). No todos se aceptan como restauración completa."], steps:[
+     ["Revisar con luz: amarillamiento, opacidad, capa UV quemada, textura áspera, grietas externas, microfracturas internas, humedad interna, quemadura interna, restauración previa, daño por solventes, rayas profundas, plástico reseco.","—","Daño identificado antes de tocar el faro","Empezar a lijar sin diagnóstico"],
+     ["Pasar la mano: áspero por fuera → normalmente se restaura. Liso pero opaco → puede ser daño interno. Con humedad por dentro → no se corrige por fuera.","—","",""],
+     ["¿Externo o interno? Mojar con agua: si aclara mucho → daño externo; si sigue opaco/manchado/cuarteado → daño interno.","—","Sabes dónde está el daño antes de elegir el tren",""],
+     ["Con lámpara: rayas externas se ven sobre la superficie; grietas internas debajo de la mica; humedad como vapor/gotas; quemadura interna como sombra que no cambia al mojar.","—","",""]]},
+   {n:"Clasificación del daño y tren de lijado", t:"guía", who:"Técnico",
+    note:["info","Elige el tren según el nivel de daño. Nunca empieces agresivo por costumbre."], steps:[
+     ["::","A) Faro medio dañado — 80-95% mejora · riesgo bajo"],
+     ["Opacidad ligera a media, amarillamiento leve, algo áspero, aún se ve el interior, sin grietas internas fuertes, sin humedad.","—","",""],
+     ["Tren: P800 → P1000 → P1500 → P2000 → P3000. El más rentable: corta bien sin castigar el policarbonato.","1–1.5 h","",""],
+     ["::","B) Faro muy dañado — 70-90% mejora · más trabajo · cobrar más"],
+     ["Amarillamiento y opacidad fuertes, capa UV quemada, se ve nublado, cuesta ver el interior, posibles marcas profundas externas. Sin daño interno severo.","—","",""],
+     ["Tren: P600 → P800 → P1000 → P1500 → P2000 → P3000. P600 solo cuando P800 ya no corta, no por costumbre.","1.5–2.25 h","",""],
+     ["::","C) Faro completamente dañado — solo con advertencia · restauración severa"],
+     ["Barniz UV totalmente quemado, capa externa cuarteada, muy áspero, amarillamiento severo, opacidad casi total (se ve blanco/amarillo/café), interior casi no se ve.","—","",""],
+     ["Tren desde P220: P220 → P320 → P400 → P600 → P800 → P1000 → P1500 → P2000 → P3000.","2.5–4 h","Mejora visible (NO se promete faro nuevo)","Usar P220 en un faro medio dañado"],
+     ["P220 es extremadamente agresivo: solo cuando la capa externa está totalmente destruida o el barniz viejo es muy duro. NUNCA en faros medio dañados.","—","",""]]},
+   {n:"Faros que NO aceptar como restauración completa", t:"criterio", who:"Técnico / Encargado",
+    note:["rule","No prometas restauración completa si hay: humedad interna, gotas o hongo por dentro, cuarteaduras internas, quemadura interna por foco, mica rota, plástico quebradizo, faro despegado, reflector quemado, opacidad interna o reparaciones previas mal hechas."], steps:[
+     ["Con daño interno: ofrecer mejora estética, NO restauración garantizada.","—","Expectativa correcta antes de iniciar","Prometer faro nuevo con daño interno"],
+     ["Frase al cliente: “Este faro sí se puede mejorar por fuera, pero tiene daño interno. No le puedo prometer que quede como nuevo porque el problema no está solo en la superficie.”","—","",""]]},
+   {n:"Preparación y encintado", t:"10 min", who:"Técnico", steps:[
+     ["Lavar el faro y secar.","—","",""],
+     ["Encintar doble alrededor. Proteger pintura, defensa, parrilla y molduras.","—","Pintura y molduras protegidas","No proteger lo de alrededor (lo daña la lija/rotativa)"]]},
+   {n:"Lijado", t:"1–4 h", who:"Técnico",
+    note:["info","Lijar en HÚMEDO, presión controlada. La transparencia se recupera en el pulido, no lijando hasta verlo transparente."], steps:[
+     ["Lubricar con agua y pocas gotas de shampoo. Lijar con presión controlada.","—","",""],
+     ["Cambiar dirección entre cada grano (cruzado): 1º horizontal, 2º vertical, 3º horizontal, y así. La dirección cruzada confirma que borraste las marcas del grano anterior.","—","Marcas del grano anterior eliminadas","Avanzar de grano sin borrar el anterior"],
+     ["Limpiar entre granos. NO avanzar hasta que la superficie esté uniforme: sin zonas brillosas de barniz quemado, sin rayas profundas, opacidad pareja, sin parches.","—","Superficie pareja antes de subir de grano","Saltarse granos / dejar parches"],
+     ["Dejar de lijar cuando el faro está parejo, la oxidación externa removida y el P3000 dejó una opacidad fina y uniforme.","—","Opacidad fina pareja (aún no transparente)","Lijar hasta verlo transparente"]]},
+   {n:"Pulido", t:"20–40 min", who:"Técnico", steps:[
+     ["::","Corte"],
+     ["Mini DA 3″ con pad de microfibra/espuma de corte + compound a velocidad 4-5. (O rotativa pequeña con espuma de corte o lana a 900-1200 rpm.)","—","",""],
+     ["3-4 pasadas, limpiar e inspeccionar. Repetir si quedan marcas de lija.","—","Sin marcas de lija visibles","Quemar los bordes con la rotativa"],
+     ["::","Refinado"],
+     ["Mini DA 3″ con espuma media/fina + polish a velocidad 3-4. (O DA/rotativa con espuma fina a 900-1100 rpm.)","—","Faro claro, sin hologramas ni rayas de lija","Dejar hologramas"]]},
+   {n:"Protección (obligatoria)", t:"10 min", who:"Técnico",
+    note:["rule","NO se entrega un faro lijado y pulido sin protección. Sin protección se vuelve a quemar rápido."], steps:[
+     ["Aplicar protección: sellador para faros (básico) · coating UV para faros (correcto) · PPF transparente (premium).","—","Faro protegido contra UV","Entregar sin protección"],
+     ["Retirar la cinta.","—","",""]]},
+   {n:"Estándar de entrega", t:"5 min", who:"Técnico",
+    note:["info","Si el faro tenía daño interno, debió quedar informado ANTES de iniciar."], steps:[
+     ["Revisión final con luz: claro, uniforme, sin rayas profundas de lija, sin hologramas, bordes sin residuo, con protección aplicada.","—","Cumple el estándar de entrega",""]]},
+   {n:"Errores prohibidos", t:"reglas", who:"",
+    note:["rule","Estos errores no se permiten en faros."], steps:[
+     ["Usar P220 en cualquier faro (solo en daño severo real).","",""," "],
+     ["Empezar agresivo sin diagnóstico.","","",""],
+     ["Saltarse granos o lijar en seco sin control.","","",""],
+     ["No proteger la pintura alrededor.","","",""],
+     ["No cambiar dirección entre granos.","","",""],
+     ["Pulir sin eliminar marcas profundas o quemar los bordes con rotativa.","","",""],
+     ["Prometer faro nuevo si hay daño interno.","","",""],
+     ["Entregar sin protección UV.","","",""]]}
  ]},
 {cat:"Adicionales", id:"motor", ico:"🔧", title:"Motor", total:"50 min", who:"1 persona", prod:"Limpieza y detallado de motor", draft:true,
  note:["rule","BORRADOR — este servicio NO tiene SOP formal de Mackey. Lo de abajo es una referencia preliminar, NO el proceso oficial. No lo sigas como definitivo. Pendiente: Mackey dicta su método y se reemplaza."],
