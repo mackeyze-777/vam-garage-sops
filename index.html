@@ -106,6 +106,31 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,6,10,.85);backdrop-fil
 .foot{padding:28px 0 10px;text-align:center;font-size:12px;color:#5b5f6b}
 .expand-all{background:none;border:1px solid var(--line);color:var(--muted);font:inherit;font-size:12.5px;padding:8px 16px;border-radius:999px;cursor:pointer;margin:6px 0 2px}
 .expand-all:active{transform:scale(.96)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(245,197,24,.15);color:var(--gold);border:1px solid rgba(245,197,24,.4);margin-left:7px;vertical-align:middle;font-family:'DM Sans'}
+.roles{margin:18px 0 4px;background:var(--surface);border:1px solid rgba(200,240,0,.25);border-radius:14px;overflow:hidden}
+.roles-h{display:flex;align-items:center;gap:11px;padding:15px 16px;cursor:pointer;user-select:none}
+.roles-h h3{font-size:15px;flex:1}
+.roles-h .tag{font-size:11px;font-weight:700;color:#05060A;background:var(--lime);padding:4px 9px;border-radius:7px}
+.roles.open .chev{transform:rotate(90deg)}
+.roles-body{display:none;padding:0 16px 16px;font-size:13.5px;color:#c7cad2;line-height:1.55}
+.roles.open .roles-body{display:block}
+.roles-body p{margin:8px 0}
+.roles-body b{color:var(--lime);font-weight:600}
+.roles-body .wk{margin:9px 0;padding:8px 0 8px 13px;border-left:2px solid var(--line)}
+#printArea{display:none}
+@media print{
+  body *{visibility:hidden}
+  #printArea,#printArea *{visibility:visible}
+  #printArea{display:block;position:absolute;left:0;top:0;width:100%;color:#000;font-family:'DM Sans',sans-serif}
+  .pa-head{font-family:'Syne';font-weight:800;font-size:21px;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:4px}
+  .pa-sub{font-size:11px;color:#333;margin-bottom:12px}
+  #printArea h3{font-size:13.5px;margin:14px 0 6px;border-bottom:1px solid #999;padding-bottom:3px}
+  #printArea ul{list-style:none}
+  #printArea li{font-size:12px;padding:3px 0;display:flex;gap:8px;align-items:flex-start}
+  #printArea li::before{content:"";display:inline-block;width:13px;height:13px;border:1.5px solid #000;border-radius:2px;flex-shrink:0;margin-top:1px}
+  .pa-sign{margin-top:22px;font-size:12px;border-top:1px solid #000;padding-top:12px;line-height:2.4}
+}
 </style>
 </head>
 <body>
@@ -128,6 +153,19 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,6,10,.85);backdrop-fil
       <p>Elige el servicio. Verás el proceso completo por fases: cuánto tarda cada parte, qué hacer, cómo se ve bien hecho y qué errores evitar. Tal cual el SOP oficial de VAM Garage.</p>
     </div>
     <div class="std">★ <b>Estándar VAM:</b> el trabajo está terminado cuando lo revisas, encuentras CERO observaciones y estarías orgulloso de publicarlo, entregarlo a un cliente exigente y cobrar el 100% sin justificar nada.</div>
+    <div class="roles" id="roles">
+      <div class="roles-h"><span class="tag">🔓 Delegar</span><h3>Quién aprueba — y cómo dejas de ser el cuello de botella</h3>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="roles-body">
+        <p>Cuatro fases son <b>compuertas de calidad</b>: Recepción, Test Spot, Inspección final y Entrega. Si las aprueba siempre el dueño, el negocio depende de él y no escala. La meta es que un <b>técnico certificado</b> las apruebe solo. Por eso cada compuerta dice <b>"Técnico certificado · CEO durante la certificación"</b>.</p>
+        <p>Camino de certificación (está en el SOP):</p>
+        <div class="wk"><b>Semana 1 — Estudio.</b> Leer el SOP completo, memorizar reglas críticas y el Estándar VAM. Examen oral con el CEO.</div>
+        <div class="wk"><b>Semana 2 — Supervisado, bajo riesgo.</b> Preparación, lavado, aspirado y limpieza. El CEO evalúa cada fase.</div>
+        <div class="wk"><b>Semana 3 — Supervisado, alto riesgo.</b> Test Spot, corrección / vapor e inyección-succión, cielo, cinturones.</div>
+        <div class="wk"><b>Semana 4 — Evaluación.</b> Ejecuta un servicio completo; el CEO inspecciona con el checklist final SIN haberlo supervisado. Pasa sin correcciones → <b>certificado</b>.</div>
+        <p>Certificado = aprueba su propio Test Spot e Inspección y cierra el carro sin que el dueño aparezca. Two Step y cerámicos piden certificación adicional. <b>Ese día dejas de ser el cuello de botella.</b></p>
+      </div>
+    </div>
     <div id="cats"></div>
     <div class="foot">VAM Garage · Pachuca, Hidalgo · Documento interno · Basado en SOP-001 (Pulido y Protección) y SOP-002 (Mini Interior)</div>
   </section>
@@ -139,11 +177,15 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,6,10,.85);backdrop-fil
       <div class="chips" id="dchips"></div>
     </div>
     <div id="droute"></div>
-    <button class="expand-all" id="expandAll">Abrir todas las fases</button>
+    <div class="toolbar">
+      <button class="expand-all" id="expandAll">Abrir todas las fases</button>
+      <button class="expand-all" id="printBtn">🖨️ Hoja de control (imprimir)</button>
+    </div>
     <div id="dbody"></div>
     <div id="dkpi"></div>
   </section>
 </main>
+<div id="printArea" aria-hidden="true"></div>
 
 <script>
 /* ===== Helpers de fase =====
@@ -152,7 +194,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,6,10,.85);backdrop-fil
 
 const R = {}; // librería de fases reutilizables (SOP-001 Pulido/Protección)
 
-R.recepcion = {n:"Recepción del vehículo", t:"15 min", who:"Recepción / Encargado", steps:[
+R.recepcion = {n:"Recepción del vehículo", t:"15 min", who:"Técnico certificado · CEO durante la certificación",
+  deleg:"Compuerta de delegación. Durante la certificación la hace el CEO; certificado, la recibe el propio técnico. Ver “Quién aprueba” en el inicio.", steps:[
   ["Saludar al cliente por su nombre y presentarte: hoy tú te encargas de transformar su vehículo.","2 min","Cliente recibe bienvenida personalizada","Trato frío o genérico"],
   ["Explicar el servicio contratado: alcance y porcentaje de corrección esperado, en términos simples.","3 min","Cliente entiende qué se hará y qué no","No explicar los límites del servicio"],
   ["Inspección visual 360° JUNTO al cliente. Señalar cada daño previo en voz alta.","5 min","Daños previos identificados antes de tocar el auto",""],
@@ -183,8 +226,9 @@ R.preparacion = {n:"Preparación del vehículo", t:"60–90 min", who:"Asistente
   ["Inspección bajo luz: superficie lisa, sin hierro, sin agua, sin residuos.","2 min","Pintura lista 100% para corrección",""],
 ]};
 
-R.testSpot = {n:"Test Spot (obligatorio)", t:"9 min", who:"Técnico principal",
-  note:["rule","REGLA OBLIGATORIA: sin Test Spot aprobado, NO se inicia la corrección del vehículo completo. Sin excepción."], steps:[
+R.testSpot = {n:"Test Spot (obligatorio)", t:"9 min", who:"Técnico certificado · CEO durante la certificación",
+  note:["rule","REGLA OBLIGATORIA: sin Test Spot aprobado, NO se inicia la corrección del vehículo completo. Sin excepción."],
+  deleg:"Compuerta de delegación. El técnico certificado aprueba su propio Test Spot; durante la certificación lo valida el CEO.", steps:[
   ["Elegir área de prueba 40×40 cm en cofre o puerta delantera (representativa del auto).","1 min","",""],
   ["Aplicar pulimento + pad elegido. 3-4 pasadas a velocidad 3-4.","3 min","Pasadas uniformes, presión constante","Variar presión o velocidad durante el test"],
   ["Inspeccionar bajo Scangrip: corrección obtenida, presencia de haze u hologramas.","3 min","Sin haze ni hologramas, corrección visible",""],
@@ -257,8 +301,9 @@ R.ceraApply = {n:"Aplicación de cera / sellador", t:"30–45 min", who:"Técnic
   ["Nivelar con microfibra limpia, volteándola seguido. Inspeccionar con luz.","—","Brillo uniforme, sin residuo en molduras","Movimientos circulares"],
 ]};
 
-R.inspeccion = {n:"Inspección final", t:"40 min", who:"Encargado + Técnico",
-  note:["rule","Es el último filtro. Si algún punto falla, el vehículo NO sale: se corrige primero."], steps:[
+R.inspeccion = {n:"Inspección final", t:"40 min", who:"Técnico certificado · CEO durante la certificación",
+  note:["rule","Es el último filtro. Si algún punto falla, el vehículo NO sale: se corrige primero."],
+  deleg:"Compuerta de delegación. Certificado, el técnico firma su propia inspección con la hoja de control; durante la certificación la firma el CEO.", steps:[
   ["::","Bajo Scangrip (interior del taller)"],
   ["Revisar toda la pintura: hologramas, haze, high spots, residuos.","15 min","Cero defectos bajo luz directa","Inspección rápida o sin luz adecuada"],
   ["Molduras y emblemas sin residuo de pulimento ni protección. Cristales exteriores sin manchas.","5 min","Emblemas y cristales impecables","Residuos secos en emblemas"],
@@ -268,8 +313,9 @@ R.inspeccion = {n:"Inspección final", t:"40 min", who:"Encargado + Técnico",
   ["Llantas limpias, con brillo, sin producto de protección encima. Tomar fotos finales (mín 5).","4 min","Evidencia del resultado final","No tomar fotos de entrega"],
 ]};
 
-R.entrega = {n:"Entrega al cliente", t:"20–30 min", who:"Encargado",
-  note:["info","La entrega es una experiencia. Aquí se ganan reseñas, referidos y recompra."], steps:[
+R.entrega = {n:"Entrega al cliente", t:"20–30 min", who:"Técnico certificado · CEO durante la certificación",
+  note:["info","La entrega es una experiencia. Aquí se ganan reseñas, referidos y recompra."],
+  deleg:"Compuerta de delegación. Certificado, el técnico entrega al cliente; durante la certificación acompaña el CEO.", steps:[
   ["Llevar al cliente directo al vehículo, sin rodeos ni papeleo antes.","2 min","Cliente impactado al primer vistazo","Hacerlo esperar primero"],
   ["Recorrido 360° activo mostrando resultados específicos (no esperar a que el cliente busque).","8 min","Cliente consciente del valor recibido","Recorrido pasivo sin explicar"],
   ["Explicar los defectos que permanecieron (documentados en recepción): mejoró X% pero no desaparece sin pintura.","3 min","Sin sorpresas ni reclamos","No explicar defectos remanentes"],
@@ -473,19 +519,19 @@ const DATA = [
    {n:"Entrega", t:"10 min", who:"Encargado", steps:[
      ["Revisión final con luz, enviar fotos y pedir reseña.","10 min","Brillo uniforme, sin residuo en molduras",""]]}
  ]},
-{cat:"Adicionales", id:"faros", ico:"💡", title:"Faros", total:"1 h", who:"1 persona", prod:"Restauración / pulido de faros",
- note:["info","Proceso base de taller (aún sin SOP formal documentado). Si Mackey define su método exacto, se actualiza aquí."],
+{cat:"Adicionales", id:"faros", ico:"💡", title:"Faros", total:"1 h", who:"1 persona", prod:"Restauración / pulido de faros", draft:true,
+ note:["rule","BORRADOR — este servicio NO tiene SOP formal de Mackey. Lo de abajo es una referencia preliminar, NO el proceso oficial. No lo sigas como definitivo. Pendiente: Mackey dicta su método y se reemplaza."],
  flow:[
-   {n:"Faros — proceso base", t:"1 h", who:"Técnico", steps:[
+   {n:"Faros — referencia preliminar (borrador)", t:"1 h", who:"Técnico", steps:[
      ["Limpiar el faro y enmascarar con cinta la pintura y molduras alrededor.","10 min","Pintura protegida","Pulir sin enmascarar (daña la pintura)"],
      ["Lijar en húmedo en secuencia de granos (de más grueso a más fino) hasta uniformar el amarilleo.","20 min","Faro parejo y mate sin zonas saltadas","Saltarse granos (quedan marcas)"],
      ["Pulir con pulimento + pad hasta recuperar la transparencia.","15 min","Faro transparente y brillante",""],
      ["Aplicar sellador/protección UV para que no vuelva a amarillear pronto y retirar la cinta.","15 min","Faro sellado","No sellar (vuelve a opacarse rápido)"]]}
  ]},
-{cat:"Adicionales", id:"motor", ico:"🔧", title:"Motor", total:"50 min", who:"1 persona", prod:"Limpieza y detallado de motor",
- note:["info","Proceso base de taller (aún sin SOP formal documentado). Si Mackey define su método exacto, se actualiza aquí."],
+{cat:"Adicionales", id:"motor", ico:"🔧", title:"Motor", total:"50 min", who:"1 persona", prod:"Limpieza y detallado de motor", draft:true,
+ note:["rule","BORRADOR — este servicio NO tiene SOP formal de Mackey. Lo de abajo es una referencia preliminar, NO el proceso oficial. No lo sigas como definitivo. Pendiente: Mackey dicta su método y se reemplaza."],
  flow:[
-   {n:"Motor — proceso base", t:"50 min", who:"Técnico", note:["rule","Motor frío. Cubrir/proteger componentes eléctricos sensibles (caja de fusibles, alternador, conectores). Nunca chorro de agua directo a ellos."], steps:[
+   {n:"Motor — referencia preliminar (borrador)", t:"50 min", who:"Técnico", note:["rule","Motor frío. Cubrir/proteger componentes eléctricos sensibles (caja de fusibles, alternador, conectores). Nunca chorro de agua directo a ellos."], steps:[
      ["Con el motor frío, cubrir fusibles, alternador y conectores eléctricos.","8 min","Componentes sensibles protegidos","Trabajar con el motor caliente o sin cubrir"],
      ["Aplicar desengrasante diluido y dejar actuar; cepillar zonas con grasa.","15 min","Grasa desprendida","Saturar de agua la zona eléctrica"],
      ["Enjuague suave (no a presión sobre lo eléctrico) y secar con aire comprimido.","15 min","Sin agua en conectores","Chorro a presión directo"],
@@ -511,7 +557,7 @@ function renderHome(){
       const fases=s.flow.length;
       const el=document.createElement("div"); el.className="card";
       el.innerHTML=`<span class="ico">${s.ico}</span>
-        <h4>${s.title}</h4>
+        <h4>${s.title}${s.draft?'<span class="badge">borrador</span>':''}</h4>
         <div class="mt"><span>⏱ <b>${s.total}</b></span><span>👥 ${s.who}</span><span>📋 ${fases} fases</span></div>
         <div class="prod">${s.prod}</div>`;
       el.onclick=()=>openSvc(s.id);
@@ -534,11 +580,12 @@ function renderSteps(steps){
   html+="</ul>"; return html;
 }
 
+let currentSvc=null;
 function openSvc(id){
-  const s=DATA.find(x=>x.id===id);
+  const s=DATA.find(x=>x.id===id); currentSvc=s;
   home.style.display="none"; detail.style.display="block";
   $(".back").style.display="inline-flex"; $("#hsub").textContent=s.title;
-  $("#dico").textContent=s.ico; $("#dtitle").textContent=s.title;
+  $("#dico").textContent=s.ico; $("#dtitle").innerHTML=s.title+(s.draft?'<span class="badge">borrador</span>':'');
   $("#dchips").innerHTML=`<span class="chip lime">⏱ <b>${s.total}</b></span><span class="chip">👥 ${s.who}</span><span class="chip">🧪 ${s.prod}</span>`;
   // ruta
   $("#droute").innerHTML=`<div class="route"><div class="rt">Ruta del servicio · ${s.flow.length} fases</div><ol>`+
@@ -549,10 +596,11 @@ function openSvc(id){
   s.flow.forEach((f,i)=>{
     const ph=document.createElement("div"); ph.className="phase"+(i===0?" open":"");
     const noteHtml=f.note?`<div class="note ${f.note[0]}">${f.note[0]==="rule"?"⚠️":"ℹ️"} <span>${f.note[1]}</span></div>`:"";
+    const delegHtml=f.deleg?`<div class="note info">🔓 <span>${f.deleg}</span></div>`:"";
     ph.innerHTML=`<div class="ph-h"><span class="ph-time">${f.t}</span>
       <div class="ph-tt"><h3>${f.n}</h3><div class="who">${f.who||""}</div></div>
       <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="ph-body">${noteHtml}${renderSteps(f.steps)}</div>`;
+      <div class="ph-body">${noteHtml}${delegHtml}${renderSteps(f.steps)}</div>`;
     ph.querySelector(".ph-h").onclick=()=>ph.classList.toggle("open");
     body.appendChild(ph);
   });
@@ -581,6 +629,33 @@ function goHome(){
 }
 $("#backBtn").onclick=goHome;
 window.onpopstate=e=>{ if(e.state&&e.state.id) openSvc(e.state.id); else goHome(); };
+
+/* ===== Hoja de control imprimible (checklists reales SOP-001 / SOP-002) ===== */
+const CHECK={
+ sop1:{
+  inicio:["Fotografías de recepción tomadas (mínimo 6)","Daños previos documentados y comunicados al cliente","Servicio explicado y autorizado por el cliente","Hora de entrega confirmada","Dos cubetas preparadas (jabón + enjuague)","Guantes de lavado limpios","Pads de pulido limpios y organizados por zona (izq / der / cofre-techo)","Scangrip con batería cargada","Productos del servicio disponibles y suficientes","Microfibras limpias: lavado / secado / pulido / protección / nivelado","Aplicador de protección limpio y dedicado","IPA preparado para la fase de protección","Vehículo estacionado sin sol directo","Área de trabajo limpia y organizada"],
+  final:["Corrección de pintura al nivel prometido al cliente","Sin haze visible bajo Scangrip","Sin hologramas en ningún panel","Sin marcas de máquina visibles","Sin residuos de pulimento en molduras, emblemas o juntas","Protección aplicada uniformemente en toda la superficie","Sin high spots visibles bajo luz","Brillo uniforme en todos los paneles","Interior sin polvo de pulido, tapetes alineados","Vidrios exteriores e interiores sin manchas","Llantas y rines limpios y presentables","Partes bajas, faldones y pasos de rueda limpios","Emblemas sin residuo de pulimento","Fotografías en proceso (50%) y de entrega (mín 5) tomadas","Vehículo aprobado para entrega"]
+ },
+ sop2:{
+  inicio:["Fotografías de recepción tomadas (mínimo 8)","Estado del vehículo revisado con el cliente presente","Daños previos documentados y comunicados","Alcance del servicio explicado (incluye y NO incluye)","Hora de entrega estimada confirmada","Objetos personales del cliente en bolsa identificada","Aspiradora industrial funcionando","Máquina de vapor lista y con agua","Extractora funcionando + aire comprimido disponible","Set completo de brochas limpias","Microfibras diferenciadas por zona","Productos del servicio disponibles y suficientes","Área de trabajo limpia y organizada"],
+  final:["Mejora visual mínima del 80% en todo el interior","Cielo limpio sin manchas ni humedad","Postes A, B y C limpios sin residuos","Puertas: paneles, manijas, botones, compartimentos y bocinas","Tablero limpio, sin producto en pantallas","Consola, portavasos y palanca limpios","Asientos y vestiduras sin manchas ni humedad al tacto","Cinturones limpios y secos antes de enrollar","Rieles limpios con deslizamiento verificado","Alfombra y cajuela aspiradas, sin suciedad visible","Plásticos hidratados mate/satinado, sin exceso","Cristales sin rayas, manchas ni neblina","Tapetes colocados y objetos del cliente devueltos","Sin humedad ni olor a químico","Fotografías y video finales tomados","Vehículo aprobado para entrega"]
+ },
+ gen:{
+  inicio:["Estado del vehículo revisado; fotos si hay daño visible","Herramientas y productos del servicio listos","Vehículo posicionado correctamente"],
+  final:["Trabajo ejecutado según el proceso","Revisión final con luz: sin residuos ni zonas sin tratar","Fotografías finales tomadas y reseña solicitada","Vehículo aprobado para entrega"]
+ }
+};
+function clFor(cat){ return cat==="Interior"?CHECK.sop2 : cat==="Adicionales"?CHECK.gen : CHECK.sop1; }
+function buildPrint(s){
+  const cl=clFor(s.cat);
+  $("#printArea").innerHTML=`<div class="pa-head">VAM GARAGE · Hoja de Control</div>
+   <div class="pa-sub">${s.title} · ${s.total} · Imprime y lamina esta hoja. El vehículo NO sale hasta que TODO esté marcado.</div>
+   <h3>Checklist de inicio — antes de tocar el vehículo</h3><ul>${cl.inicio.map(i=>`<li>${i}</li>`).join("")}</ul>
+   <h3>Checklist de calidad final — antes de llamar al cliente</h3><ul>${cl.final.map(i=>`<li>${i}</li>`).join("")}</ul>
+   <div class="pa-sign">Técnico: ____________________________   Fecha: ________________<br>Aprobó (técnico certificado o CEO): ____________________________   Firma: ________________</div>`;
+}
+$("#printBtn").onclick=()=>{ if(currentSvc){ buildPrint(currentSvc); window.print(); } };
+$("#roles .roles-h").onclick=()=>$("#roles").classList.toggle("open");
 
 renderHome();
 if(location.hash){ const id=location.hash.slice(1); if(DATA.find(s=>s.id===id)) openSvc(id); }
