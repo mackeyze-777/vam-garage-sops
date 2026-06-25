@@ -219,7 +219,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
       <div class="hero">
         <h2>Manual de <span class="ac">Operaciones</span></h2>
         <p>El proceso real de cada servicio, paso a paso: cuánto tarda, qué hacer, cómo se ve bien hecho y qué errores evitar.</p>
-        <div class="hero-meta"><span><b>16</b> servicios</span><span><b>6</b> categorías</span><span>+ Seguridad</span></div>
+        <div class="hero-meta"><span><b>16</b> servicios</span><span><b>6</b> categorías</span><span>+ Reglas y seguridad</span></div>
       </div>
     </div>
     <div class="filterbar">
@@ -748,8 +748,39 @@ const DATA = [
      ["El motor sale: limpio, seco, sin exceso de dressing, sin olor fuerte a químico, sin escurrimientos, plásticos uniformes y sin testigos nuevos.","—","Cumple el estándar de entrega",""],
      ["Si tenía grasa pesada, cables dañados, tapas flojas o riesgo eléctrico, debió quedar REGISTRADO antes de iniciar.","—","",""]]}
  ]},
-// ---- SEGURIDAD ----
-{cat:"Seguridad", id:"seguridad", ico:"🦺", title:"Seguridad y químicos", total:"Siempre", who:"Todo el equipo", prod:"PPE · químicos · llaves · área de trabajo",
+// ---- REGLAS Y SEGURIDAD ----
+{cat:"Reglas y seguridad", id:"reglas", ico:"📋", title:"Reglas del taller", total:"Para todos", who:"Todo el equipo", prod:"Horario · conducta · calidad · pago",
+ note:["rule","Aplican a todo el equipo. Para que las sanciones y bajas sean VÁLIDAS y no se vuelvan contra el taller: ponlas en un Reglamento Interior de Trabajo firmado por cada quien y documenta cada incumplimiento con actas."],
+ flow:[
+   {n:"Horario y asistencia", t:"diario", who:"Todo el equipo", steps:[
+     ["Entrada 9:30 am. Tolerancia máxima 10 min (hasta 9:40). Después cuenta como retardo.","—","Llegar a tiempo y listo para arrancar","Llegar pasados los 10 min"],
+     ["Jornada de lunes a viernes (sábados no). Dejar por ESCRITO la hora de comida y de salida para que no haya dudas.","—","",""],
+     ["Tres retardos acumulados pueden derivar en sanción o baja (con el debido proceso documentado).","—","",""],
+     ["Avisar faltas o incapacidad ANTES de la hora de entrada y presentar justificante (incapacidad del IMSS cuando aplique).","—","Ausencia avisada y justificada a tiempo","Solo faltar sin avisar"]]},
+   {n:"Durante el trabajo", t:"siempre", who:"Todo el equipo", steps:[
+     ["Celular GUARDADO durante el trabajo operativo. Solo en comida, descanso o emergencia.","—","Cero distracciones en el carro","Celular en mano mientras se trabaja"],
+     ["Equipo de protección puesto siempre (ver Seguridad y químicos).","—","",""],
+     ["Ropa de trabajo limpia y presentable. Nada de alcohol ni drogas, ni trabajar bajo su efecto. Fumar solo en el área designada.","—","",""]]},
+   {n:"Avance y calidad", t:"por trabajo", who:"Técnico / Encargado",
+    note:["info","El avance se revisa en cortes (checkpoints) de tiempo Y calidad, no solo al final."], steps:[
+     ["Cada trabajo tiene cortes de avance. Si no se cumple el avance en tiempo y calidad, se retira la tarea y se reasigna.","—","Avance al día y al estándar","Quedarse atrás sin avisar"],
+     ["Ningún auto se entrega sin pasar la Hoja de Control y la aprobación de calidad (las compuertas del SOP).","—","Vehículo aprobado antes de salir","Entregar sin que calidad lo apruebe"],
+     ["Daños, retrabajos por descuido o distracción se REGISTRAN como incumplimiento.","—","",""],
+     ["Reportar de inmediato cualquier incidente o daño. Prohibido ocultarlo (ver protocolo de incidentes).","—","Incidente reportado al instante","Ocultar un golpe o daño"]]},
+   {n:"Cuidado del auto, herramienta y pertenencias", t:"siempre", who:"Todo el equipo", steps:[
+     ["El auto del cliente es responsabilidad del taller: llaves seguras, manejar con cuidado, no usarlo para nada más.","—","Auto y llaves cuidados","Usar el auto del cliente o dejar la llave a la vista"],
+     ["No tocar ni tomar pertenencias del cliente. Guardarlas etiquetadas y devolverlas completas.","—","Objetos del cliente intactos","Tomar algo del auto"],
+     ["Cuidar herramienta y equipo; reportar fallas; no sacar herramienta sin permiso. Dejar el área limpia y ordenada al terminar.","—","Equipo cuidado y área ordenada","Dejar tirado o sacar herramienta"]]},
+   {n:"Trato y confidencialidad", t:"siempre", who:"Todo el equipo", steps:[
+     ["Trato respetuoso al cliente y a los compañeros. No discutir precios con el cliente: derivar al encargado.","—","",""],
+     ["No compartir información de clientes ni publicar o grabar autos sin autorización.","—","","Subir el auto de un cliente sin permiso"]]},
+   {n:"Bonos, pago y consecuencias", t:"reglas", who:"Encargado",
+    note:["rule","El proceso disciplinario es progresivo y documentado: llamada de atención → amonestación por escrito → acta → según gravedad, rescisión justificada conforme a la ley."], steps:[
+     ["Bonos y comisiones SOLO si el trabajo se entrega completo, en tiempo y aprobado por calidad.","—","Bono ganado con trabajo aprobado","Esperar bono por trabajo incompleto o rechazado"],
+     ["No se pagan bonos no ganados. Pero SIEMPRE se paga lo que corresponde por ley (salario, horas, prestaciones, finiquito).","—","",""],
+     ["Si el desempeño no cumple el estándar del taller de forma repetida y documentada, puede terminar la relación laboral conforme a la ley.","—","",""]]}
+ ]},
+{cat:"Reglas y seguridad", id:"seguridad", ico:"🦺", title:"Seguridad y químicos", total:"Siempre", who:"Todo el equipo", prod:"PPE · químicos · llaves · área de trabajo",
  flow:[
    {n:"Equipo de protección (PPE)", t:"siempre", who:"Todo el equipo",
     note:["info","Antes de tocar un químico o la máquina, ponte el equipo. La salud no se recupera."], steps:[
@@ -786,9 +817,9 @@ const DATA = [
 /* ===== Render ===== */
 const $=s=>document.querySelector(s);
 const home=$("#home"), detail=$("#detail");
-const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧","Seguridad":"🦺"};
+const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧","Reglas y seguridad":"📋"};
 
-const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales","Seguridad"];
+const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales","Reglas y seguridad"];
 let activeCat="all", query="";
 
 function renderChips(){
@@ -904,7 +935,7 @@ const CHECK={
   final:["Trabajo ejecutado según el proceso","Revisión final con luz: sin residuos ni zonas sin tratar","Fotografías finales tomadas y reseña solicitada","Vehículo aprobado para entrega"]
  }
 };
-function clFor(cat){ return cat==="Interior"?CHECK.sop2 : (cat==="Adicionales"||cat==="Seguridad")?CHECK.gen : CHECK.sop1; }
+function clFor(cat){ return cat==="Interior"?CHECK.sop2 : (cat==="Adicionales"||cat==="Reglas y seguridad")?CHECK.gen : CHECK.sop1; }
 function buildSheet(s){
   const cl=clFor(s.cat);
   const items=a=>a.map(i=>`<li><span class="bx"></span><span>${i}</span></li>`).join("");
