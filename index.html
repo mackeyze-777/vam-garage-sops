@@ -219,7 +219,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
       <div class="hero">
         <h2>Manual de <span class="ac">Operaciones</span></h2>
         <p>El proceso real de cada servicio, paso a paso: cuánto tarda, qué hacer, cómo se ve bien hecho y qué errores evitar.</p>
-        <div class="hero-meta"><span><b>15</b> servicios</span><span><b>5</b> categorías</span><span>SOP-001 · SOP-002</span></div>
+        <div class="hero-meta"><span><b>16</b> servicios</span><span><b>6</b> categorías</span><span>+ Seguridad</span></div>
       </div>
     </div>
     <div class="filterbar">
@@ -602,6 +602,31 @@ const DATA = [
    {n:"Entrega", t:"5 min", who:"Encargado", steps:[
      ["Entregar, enviar fotos por WhatsApp y pedir reseña.","5 min","Cliente con su material","No pedir reseña"]]}
  ]},
+{cat:"Adicionales", id:"ruedas", ico:"🛞", title:"Ruedas y llantas", total:"30–45 min", who:"1 persona", prod:"Limpieza profunda + dressing · cubeta y cepillos aparte",
+ flow:[
+   {n:"Antes de empezar", t:"5 min", who:"Técnico",
+    note:["rule","Rueda FRÍA. Cubeta y cepillos SOLO para ruedas: el agua sucia de llanta NUNCA toca la pintura."], steps:[
+     ["Confirmar la rueda fría. Nunca químico sobre rin caliente (mancha y daña).","—","","Trabajar el rin caliente"],
+     ["Cubeta dedicada + cepillos exclusivos (de color distinto): cepillo de barril, de cara/rin, de llanta y brocha de detalle.","—","Herramienta separada de la pintura","Usar la misma mitt o cubeta de la carrocería"],
+     ["Tener listos: limpiador de rines/APC, removedor de hierro, desengrasante de llanta y dressing base agua.","—","",""]]},
+   {n:"Descontaminación", t:"10 min", who:"Técnico", steps:[
+     ["Enjuagar la rueda. Rociar limpiador/APC en cara, barril, calipers, llanta y pozo de rueda. Dejar actuar sin secar.","—","Todo cubierto y actuando","Dejar secar el producto"],
+     ["Removedor de hierro en el rin si hay polvo de freno incrustado (cambia a morado = hierro). Dejar 1-3 min y enjuagar.","—","Hierro disuelto","Iron remover al sol o en seco"]]},
+   {n:"Tallado por zonas", t:"15 min", who:"Técnico", steps:[
+     ["BARRIL (parte interna del rin): cepillo de barril, cubrir toda el área. Es donde más se acumula y donde más se nota un trabajo a medias.","—","Barril limpio, no solo la cara","Limpiar solo la cara visible"],
+     ["CARA del rin: cepillo o mitt de rin, entre los rayos y los bordes.","—","Sin tierra entre rayos",""],
+     ["CALIPERS y tuercas con brocha de detalle.","—","",""],
+     ["LLANTA (goma): cepillo + APC/desengrasante hasta que el agua salga limpia (la goma suelta café).","—","La goma deja de soltar café","Poner dressing sobre llanta sucia"],
+     ["POZO DE RUEDA (fender well): cepillo grande, soltar lodo y tierra del interior.","—","Pozo sin lodo","Ignorar el pozo (el cliente lo ve)"]]},
+   {n:"Enjuague y secado", t:"5 min", who:"Técnico", steps:[
+     ["Enjuagar a presión controlada: cara, barril, llanta y pozo. Sin residuo de producto.","—","Sin químico atrapado",""],
+     ["Secar el rin con microfibra dedicada (no la de pintura) y soplar el agua de tuercas y orificios.","—","Rin seco, sin gotas","Secar el rin con la microfibra de la carrocería"]]},
+   {n:"Dressing y acabado", t:"10 min", who:"Técnico",
+    note:["info","Dressing base agua, acabado satinado o mate según el cliente — nunca chorreando."], steps:[
+     ["Aplicar dressing en la goma con aplicador, capa pareja. Retirar el exceso para que no salpique la pintura al andar.","—","Llanta pareja, sin escurrimientos","Dressing en exceso (salpica la pintura)"],
+     ["(Opcional) sellador o cerámico de rines en la cara para que el polvo de freno no se pegue. Sobre rin limpio y seco.","—","Rin más fácil de limpiar a futuro","Sellar un rin sucio"],
+     ["Revisión final: cara, barril y entre rayos limpios; goma pareja; sin producto en la pintura ni en los discos de freno.","—","Cumple el estándar","Dressing sobre los discos de freno"]]}
+ ]},
 {cat:"Adicionales", id:"cera", ico:"💧", title:"Cera + descontaminación", total:"1.17 h", who:"1 persona", prod:"Descontaminación + cera/sellador",
  flow:[
    {n:"Lavado y descontaminación química", t:"20 min", who:"Técnico", steps:[
@@ -723,14 +748,47 @@ const DATA = [
      ["El motor sale: limpio, seco, sin exceso de dressing, sin olor fuerte a químico, sin escurrimientos, plásticos uniformes y sin testigos nuevos.","—","Cumple el estándar de entrega",""],
      ["Si tenía grasa pesada, cables dañados, tapas flojas o riesgo eléctrico, debió quedar REGISTRADO antes de iniciar.","—","",""]]}
  ]},
+// ---- SEGURIDAD ----
+{cat:"Seguridad", id:"seguridad", ico:"🦺", title:"Seguridad y químicos", total:"Siempre", who:"Todo el equipo", prod:"PPE · químicos · llaves · área de trabajo",
+ flow:[
+   {n:"Equipo de protección (PPE)", t:"siempre", who:"Todo el equipo",
+    note:["info","Antes de tocar un químico o la máquina, ponte el equipo. La salud no se recupera."], steps:[
+     ["Guantes de NITRILO (no látex: el látex no protege de químicos y puede dar alergia). Cambiarlos si se rompen o se saturan.","—","Manos protegidas de APC, iron remover, desengrasante y compounds","Trabajar a mano pelada con químico"],
+     ["Lentes o goggles al rociar iron remover, desengrasante o APC concentrado.","—","Ojos protegidos de salpicaduras",""],
+     ["Respirador o mascarilla al lijar, al pulir (polvo) o al aplicar cerámico/solventes en espacio cerrado.","—","No respirar polvo de pulido ni vapores de coating","Lijar o aplicar cerámico sin mascarilla"],
+     ["Calzado cerrado antiderrapante; sin mangas ni cordones sueltos cerca de la pulidora.","—","",""]]},
+   {n:"Manejo de químicos", t:"reglas", who:"Todo el equipo",
+    note:["rule","Cada químico es distinto. Lee la etiqueta y la hoja de seguridad (SDS) antes de usar uno nuevo."], steps:[
+     ["Tener a la mano la HOJA DE SEGURIDAD (SDS) de cada producto (la da el proveedor) y saber qué hacer si cae en piel u ojos.","—","SDS accesible de cada químico","Usar un producto sin conocer su riesgo"],
+     ["NUNCA mezclar químicos (pueden generar gases). Nunca usar ácido en el motor ni sobre aluminio sin saber.","—","","Mezclar productos para que limpie más"],
+     ["Diluir según la etiqueta. Aplicar en frío y a la sombra (iron remover y cerámico nunca al sol ni sobre superficie caliente).","—","Producto efectivo y seguro","Concentrado de más o sobre pieza caliente"],
+     ["Nunca dejar que un químico seque sobre la pieza: enjuagar o retirar a tiempo.","—","","Dejar secar el producto"]]},
+   {n:"Almacenaje de químicos", t:"orden", who:"Todo el equipo", steps:[
+     ["Guardar en su envase original, etiquetado y cerrado. Si trasvasas a atomizador, etiquétalo (qué es + dilución).","—","Todo identificado","Atomizadores sin etiqueta"],
+     ["Zona ventilada, temperatura estable, lejos del sol y de fuentes de calor o chispa.","—","",""],
+     ["Separar incompatibles (ácidos aparte). Nada de comida ni bebida en la zona de químicos.","—","",""]]},
+   {n:"Máquinas y eléctrico", t:"revisar", who:"Técnico", steps:[
+     ["Revisar cables de pulidora e hidrolavadora sin pelar antes de usar. No jalar del cable.","—","","Trabajar con un cable dañado"],
+     ["Cuidado con extensiones en el piso mojado del área de lavado (agua + electricidad).","—","Sin riesgo de descarga",""],
+     ["Pulidora: backing plate firme, pad centrado, arrancar a velocidad baja.","—","",""]]},
+   {n:"Llaves y autos del cliente", t:"reglas", who:"Todo el equipo",
+    note:["rule","El auto del cliente es responsabilidad del taller desde que entra. Cuida llaves y conducción."], steps:[
+     ["Llaves en un lugar fijo y seguro (tablero de llaves). Nunca dejarlas puestas, a la vista o sueltas.","—","Llave localizable y segura","Dejar la llave puesta o tirada"],
+     ["Mover el auto: solo personal autorizado, despacio, usando espejos y cámara, sin celular. Dejar asiento y espejos como estaban.","—","Sin golpes ni rayones al maniobrar","Que cualquiera mueva autos sin cuidado"],
+     ["Reportar de inmediato cualquier incidente al encargado (ver el protocolo de incidentes del SOP).","—","",""]]},
+   {n:"Orden y emergencia", t:"orden", who:"Todo el equipo", steps:[
+     ["Piso seco donde se camina, mangueras recogidas, sin charcos de químico.","—","Sin resbalones ni tropiezos",""],
+     ["Trapos con solvente o desengrasante: no amontonar. Residuos químicos fuera de la zona de trabajo.","—","",""],
+     ["Botiquín básico y agua limpia a la mano para enjuagar ojos o piel si cae químico.","—","Listo para una emergencia menor","No tener con qué enjuagar"]]}
+ ]},
 ];
 
 /* ===== Render ===== */
 const $=s=>document.querySelector(s);
 const home=$("#home"), detail=$("#detail");
-const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧"};
+const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧","Seguridad":"🦺"};
 
-const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales"];
+const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales","Seguridad"];
 let activeCat="all", query="";
 
 function renderChips(){
@@ -846,7 +904,7 @@ const CHECK={
   final:["Trabajo ejecutado según el proceso","Revisión final con luz: sin residuos ni zonas sin tratar","Fotografías finales tomadas y reseña solicitada","Vehículo aprobado para entrega"]
  }
 };
-function clFor(cat){ return cat==="Interior"?CHECK.sop2 : cat==="Adicionales"?CHECK.gen : CHECK.sop1; }
+function clFor(cat){ return cat==="Interior"?CHECK.sop2 : (cat==="Adicionales"||cat==="Seguridad")?CHECK.gen : CHECK.sop1; }
 function buildSheet(s){
   const cl=clFor(s.cat);
   const items=a=>a.map(i=>`<li><span class="bx"></span><span>${i}</span></li>`).join("");
