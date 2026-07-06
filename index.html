@@ -187,6 +187,35 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
 .sg-line{border-bottom:1.5px solid #16181d;height:32px}
 .sg span{font-size:9.5px;color:#777;font-weight:700;display:block;margin-top:7px;text-transform:uppercase;letter-spacing:.5px}
 .sh-foot{margin-top:8px;padding:11px 26px 22px;border-top:1px solid #eef0f2;font-size:9.5px;color:#a2a5ac;line-height:1.5}
+/* ===== Tabla de diluciones — vista detalle (oscura) ===== */
+.dilu-legend{background:rgba(232,23,138,.07);border:1px solid rgba(232,23,138,.25);border-radius:11px;padding:12px 14px;margin:10px 0 16px;font-size:13px;color:#f0a8cf;line-height:1.55}
+.dilu-legend b{color:var(--lime)}
+.dilu-legend code{background:#050505;border:1px solid var(--line2);border-radius:5px;padding:1px 6px;color:var(--lime);font-weight:700}
+.dilu-sub{font-family:system-ui;font-weight:700;font-size:13px;color:var(--lime);margin:18px 0 10px;text-transform:uppercase;letter-spacing:.05em}
+.dtbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);-webkit-overflow-scrolling:touch}
+.dtbl{width:100%;border-collapse:collapse;font-size:12.5px;min-width:560px}
+.dtbl th{background:var(--surface2);color:var(--muted);text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.dtbl td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.35;color:var(--text2)}
+.dtbl tr:last-child td{border-bottom:0}
+.dtbl .prod{font-weight:700;color:var(--text);white-space:nowrap}
+.dtbl .dil{font-weight:800;color:var(--lime);white-space:nowrap}
+.dtbl .mix{font-size:11.5px;color:var(--text);white-space:nowrap}
+.dtbl .rtu{display:inline-block;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--ok);background:rgba(39,199,111,.12);border:1px solid rgba(39,199,111,.3);padding:3px 8px;border-radius:6px}
+.dtbl .qmark{color:var(--gold);font-weight:800}
+/* ===== Tabla de diluciones — hoja blanca de impresión ===== */
+.dilu-plegend{margin:2px 26px 0;padding:10px 14px;background:#fdeef6;border:1px solid var(--lime);border-radius:8px;font-size:11px;color:#4a2038;line-height:1.5}
+.dilu-plegend b{color:#a31368}
+.dilu-plegend code{background:#fff;border:1px solid #f0c3dc;border-radius:5px;padding:1px 6px;color:#a31368;font-weight:700}
+.p-tblwrap{padding:0 26px;margin-top:2px}
+.ptbl{width:100%;border-collapse:collapse;font-size:11px}
+.ptbl th{background:#f4f5f7;color:#5a5e66;text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:.5px;font-weight:800;padding:7px 8px;border-bottom:1.4px solid #dfe1e5;white-space:nowrap}
+.ptbl td{padding:7px 8px;border-bottom:1px solid #edeef1;vertical-align:top;line-height:1.3;color:#2c2f36}
+.ptbl tr:last-child td{border-bottom:0}
+.ptbl .prod{font-weight:700;color:#16181d;white-space:nowrap}
+.ptbl .dil{font-weight:800;color:#a31368;white-space:nowrap}
+.ptbl .mix{font-family:ui-monospace,Menlo,monospace;font-size:10px;white-space:nowrap}
+.ptbl .rtu{display:inline-block;font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#1a7a44;background:#e6f6ec;border:1px solid #b9e6c9;padding:2px 7px;border-radius:5px}
+.ptbl .qmark{color:#c98a2b;font-weight:800}
 #printArea{display:none}
 @media print{
   body *{visibility:hidden}
@@ -195,7 +224,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
   .sheet-overlay.open .sheet-actions{display:none}
   .sheet-overlay.open .sheet-panel{max-width:none}
   .sheet-overlay.open .sheet{box-shadow:none;border-radius:0}
-  .sh-band,.sh-mark,.sh-n,.sh-doc-t,.sh-rule{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sh-band,.sh-mark,.sh-n,.sh-doc-t,.sh-rule,.dilu-plegend,.ptbl th,.ptbl .rtu{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{margin:12mm}
 }
 </style>
@@ -250,7 +279,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
         </div>
         <div class="std">★ <b>Estándar VAM:</b> el trabajo está terminado cuando lo revisas, encuentras CERO observaciones y estarías orgulloso de publicarlo, entregarlo a un cliente exigente y cobrar el 100% sin justificar nada.</div>
       </div>
-      <div class="foot">VAM Garage · Pachuca, Hidalgo · Documento interno · Basado en SOP-001 (Pulido y Protección) y SOP-002 (Mini Interior)</div>
+      <div class="foot">VAM Garage · Pachuca, Hidalgo · Documento interno · Basado en SOP-001 (Pulido y Protección), SOP-002 (Mini Interior) y SOP-003 (Cerámica)</div>
     </div>
   </section>
 
@@ -376,15 +405,47 @@ R.proteccionPrep = {n:"Preparación para proteger", t:"20 min", who:"Técnico pr
   ["Confirmar superficie limpia, seca y sin aceites.","2 min","Lista al 100%",""],
 ]};
 
-function ceramicoApply(prod, dur){
-  return {n:"Aplicación de cerámico", t:"45–60 min", who:"Técnico principal",
-    note:["info","Producto: "+prod+" — duración "+dur+". Temperatura del panel 15-25°C. NO bajo sol directo."], steps:[
-    ["Aplicador limpio y dedicado para este producto (nunca reutilizar sin lavar).","—","Aplicación sin contaminación","Aplicador con residuo de otro producto"],
-    ["Aplicar en patrón cruzado por secciones de 40×40 cm máximo.","—","Cobertura uniforme sin exceso","Secciones grandes (se seca antes de nivelar)"],
-    ["Esperar 30-40 seg (o lo que indique el producto). No dejar secar del todo.","—","Producto activo al nivelar","Nivelar de inmediato sin tiempo de adherencia"],
-    ["Nivelar con microfibra limpia y suave, movimientos rectos.","—","Acabado uniforme, sin residuos","Movimientos circulares al nivelar"],
-    ["Inspeccionar con luz lateral cada sección: high spots, zonas sin cubrir o residuos.","2 min/sec","Brillo uniforme, sin high spots","No inspeccionar entre secciones"],
-    ["⚠️ HIGH SPOTS: corregir INMEDIATAMENTE con microfibra limpia. No dejar secar. Re-nivelar y re-inspeccionar.","—","",""],
+/* ===== SOP-003 · Cerámica — datos por producto =====
+   Los tiempos de flash y curado son valores típicos de fábrica. SIEMPRE mandar sobre
+   la ficha técnica del producto y ajustar por la temperatura y humedad reales del día. */
+const CERA_SPEC = {
+  cancoat:{flash:"30–60 seg", capas:"1 capa", ventana:null,
+    cura:"Sin mojar 8 h · sin lavar 24 h · sin químicos fuertes 7 días"},
+  gtecnic:{flash:"1–3 min", capas:"1 capa fuerte (2ª solo si la ficha lo indica)", ventana:"Si lleva 2ª capa: esperar 1–4 h",
+    cura:"Bajo techo 12 h · sin lavar 24 h · sin químicos 7 días · sin lavados agresivos 14 días"},
+  mohs:{flash:"1–3 min", capas:"DOBLE CAPA obligatoria (paquete 5 años)", ventana:"2ª capa: 1–4 h después de la 1ª (respetar la ventana de la ficha)",
+    cura:"Bajo techo mínimo 12 h · no mojar 12 h · sin lavar 24 h · sin químicos 7 días · sin lavados agresivos 14 días"},
+  matte:{flash:"1–2 min", capas:"1 capa", ventana:null,
+    cura:"Bajo techo 12 h · sin lavar 24 h · mantenimiento SOLO con limpiador para mate, nunca cera ni sellador brillante"},
+};
+
+function ceramicoApply(prod, dur, spec){
+  spec = spec || {flash:"30–60 seg", capas:"1 capa", ventana:null, cura:"Sin mojar 12 h · sin lavar 24 h · sin químicos 7 días"};
+  return {n:"Aplicación de cerámico", t:"45–75 min", who:"Técnico principal",
+    note:["info","Producto: "+prod+" — duración "+dur+". Panel a 15–25°C, NUNCA bajo sol directo. El cerámico NO corrige pintura: si hay defectos, se corrigen ANTES."], steps:[
+    ["::","Confirmación previa (panel wipe)"],
+    ["Doble panel wipe con IPA al 20% (obligatorio en 3 y 5 años). 1er wipe quita aceites de pulido, 2º confirma superficie limpia. Microfibra nueva por zona.","5 min","Superficie sin aceites bajo lámpara","Reusar una microfibra saturada (mueve aceite de un panel a otro)"],
+    ["Verificar condiciones: panel FRÍO 15–25°C, sin sol directo, taller sin polvo, buena luz cruzada.","2 min","Ambiente controlado para aplicar","Aplicar al sol o con polvo en el aire"],
+    ["::","Aplicación — "+prod],
+    ["Aplicador limpio y DEDICADO a este producto (suede/microfibra según pida el coating). Nunca reutilizar sin lavar.","—","Aplicación sin contaminación","Aplicador con residuo de otro producto"],
+    ["Orden: techo → cofre → cajuela → laterales altos → puertas → salpicaderas → defensas → zonas bajas al final.","—","Cobertura ordenada, nada saltado","Empezar por zonas bajas (contamina el aplicador)"],
+    ["Gotas en el aplicador y aplicar en PATRÓN CRUZADO (horizontal y luego vertical) por secciones de 40×40 cm. Chico y seguro.","—","Cobertura uniforme, sin exceso","Medio coche de una vez (se pasa el flash)"],
+    ["Esperar el FLASH: "+spec.flash+" — el coating se ve como arcoíris/neblina y el aplicador deja de sentirse mojado. Manda la ficha, no el reloj.","por sección","Flash correcto antes de nivelar","Nivelar mojado o dejar secar de más (high spot)"],
+    ["::","Nivelado — 3 toallas"],
+    ["Toalla 1 corta el exceso · Toalla 2 nivela y quita sombras (revisar desde varios ángulos) · Toalla 3 da el acabado con microfibra limpia.","—","Sin residuo, sin sombras, brillo uniforme","Una sola toalla para todo (satura y deja marcas)"],
+    ["Inspeccionar con luz lateral cada sección: high spots, arcoíris seco, líneas del aplicador, zonas sin cubrir o parches.","2 min/sec","Cada sección aprobada antes de seguir","No inspeccionar entre secciones"],
+    ["⚠️ HIGH SPOT: fresco → reaplicar un poco de coating en la zona, esperar unos segundos y renivelar. Ya curado → requiere polish localizado y reaplicar.","—","High spot corregido al momento","Dejarlo (queda marcado toda la vida del coating)"],
+    ["Capas: "+spec.capas+(spec.ventana?". "+spec.ventana:"")+".","—","Capas según el sistema del producto","Inventar capas — más capas no es más duración"],
+  ]};
+}
+
+function ceramicoCurado(spec){
+  return {n:"Curado y cuidados al cliente", t:"12 h + entrega", who:"Técnico certificado · CEO durante la certificación",
+    note:["rule","No probar la hidrofobicidad mojando el coche recién aplicado: es error de principiante y puede manchar el coating."], steps:[
+    ["Curado inicial: primeras 2–4 h no tocar la superficie. "+spec.cura+".","—","Curado respetado","Que se moje o se lave antes de tiempo"],
+    ["Cerámicos de 3 y 5 años: entregar tras MÍNIMO 12 h bajo techo. El de 1 año puede salir antes, advirtiendo que no se moje.","—","Coche entregado ya curado","Entregar un 5 años recién aplicado a la lluvia"],
+    ["Revisión final anti high-spots bajo lámpara: pintura uniforme, molduras y plásticos sin coating, sin gotas atrapadas en juntas.","5 min","Cero high spots en la entrega",""],
+    ["Mensaje al cliente (WhatsApp): «Los primeros 7 días evita lavar el coche, mojarlo de más o usar químicos fuertes. Si le cae lluvia no pasa nada, pero no lo dejes secar sucio al sol. Después, lávalo solo con shampoo neutro y microfibra limpia.»","—","Cliente sabe cómo cuidar el trabajo","Entregar sin instrucciones de cuidado"],
   ]};
 }
 
@@ -549,17 +610,17 @@ I.entrega = R.entrega;
 const DATA = [
 // ---- CERÁMICOS ----
 {cat:"Cerámicos", id:"cer-mate", ico:"🛡️", title:"Cerámico mate 2 años", total:"6 h", who:"2 personas", prod:"Gyeon Matte EVO · One Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gyeon Matte EVO","2 años"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gyeon Matte EVO","2 años",CERA_SPEC.matte),R.inspeccion,ceramicoCurado(CERA_SPEC.matte),R.entrega]},
 {cat:"Cerámicos", id:"cer-1a", ico:"🛡️", title:"1 paso + cerámico 1 año", total:"6 h", who:"2 personas", prod:"CanCoat Evo · One Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("CanCoat Evo","1 año"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("CanCoat Evo","1 año",CERA_SPEC.cancoat),R.inspeccion,ceramicoCurado(CERA_SPEC.cancoat),R.entrega]},
 {cat:"Cerámicos", id:"cer-3a", ico:"🛡️", title:"1 paso + 3 años", total:"6 h", who:"2 personas", prod:"Gtecnic · One Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gtecnic","3 años"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN2,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gtecnic","3 años",CERA_SPEC.gtecnic),R.inspeccion,ceramicoCurado(CERA_SPEC.gtecnic),R.entrega]},
 {cat:"Cerámicos", id:"cer-2p1a", ico:"🛡️", title:"2 pasos + cerámico 1 año", total:"9.5 h", who:"2 personas", prod:"CanCoat Evo · Two Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("CanCoat Evo","1 año"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("CanCoat Evo","1 año",CERA_SPEC.cancoat),R.inspeccion,ceramicoCurado(CERA_SPEC.cancoat),R.entrega]},
 {cat:"Cerámicos", id:"cer-2p3a", ico:"🛡️", title:"2 pasos + 3 años", total:"9.5 h", who:"2 personas", prod:"Gtecnic · Two Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gtecnic","3 años"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gtecnic","3 años",CERA_SPEC.gtecnic),R.inspeccion,ceramicoCurado(CERA_SPEC.gtecnic),R.entrega]},
 {cat:"Cerámicos", id:"cer-2p5a", ico:"🛡️", title:"2 pasos + 5 años (doble capa)", total:"11 h", who:"2 personas", prod:"Gyeon Mohs EVO ×2 · Two Step",
- flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gyeon Mohs EVO (DOBLE CAPA — aplicar 2 capas, respetar el flash entre capas)","5 años"),R.inspeccion,R.entrega]},
+ flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN3,R.interiorParalelo,R.proteccionPrep,ceramicoApply("Gyeon Mohs EVO ×2","5 años",CERA_SPEC.mohs),R.inspeccion,ceramicoCurado(CERA_SPEC.mohs),R.entrega]},
 // ---- PULIDO ----
 {cat:"Pulido", id:"pulido31", ico:"✨", title:"Pulido 3-1 (1 paso)", total:"3 h", who:"2 personas", prod:"All-in-one · pad rosa · protección integrada",
  flow:[R.recepcion,R.preparacion,R.testSpot,R.corrN1,R.interiorParalelo,R.inspeccion,R.entrega]},
@@ -812,6 +873,7 @@ const DATA = [
      ["Trapos con solvente o desengrasante: no amontonar. Residuos químicos fuera de la zona de trabajo.","—","",""],
      ["Botiquín básico y agua limpia a la mano para enjuagar ojos o piel si cae químico.","—","Listo para una emergencia menor","No tener con qué enjuagar"]]}
  ]},
+{cat:"Reglas y seguridad", id:"diluciones", ico:"⚗️", title:"Tabla de diluciones", total:"Referencia", who:"Todo el equipo", prod:"Diluciones y usos de químicos", dilu:true, flow:[]},
 ];
 
 /* ===== Render ===== */
@@ -846,7 +908,7 @@ function renderHome(){
       el.style.animationDelay=(Math.min(idx,10)*40)+"ms"; idx++;
       el.innerHTML=`<div class="card-top"><span class="card-ico">${s.ico}</span>${s.draft?'<span class="badge">borrador</span>':""}</div>
         <h4>${s.title}</h4>
-        <div class="mt"><span>⏱ <b>${s.total}</b></span><span>👥 ${s.who}</span><span>📋 ${s.flow.length} fases</span></div>
+        <div class="mt"><span>⏱ <b>${s.total}</b></span><span>👥 ${s.who}</span><span>📋 ${s.dilu?'tabla de referencia':s.flow.length+' fases'}</span></div>
         <div class="prod">${s.prod}</div>`;
       const go=()=>openSvc(s.id);
       el.onclick=go; el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}};
@@ -877,6 +939,17 @@ function openSvc(id){
   $(".back").style.display="inline-flex"; $("#hsub").textContent=s.title;
   $("#dico").textContent=s.ico; $("#dtitle").innerHTML=s.title+(s.draft?'<span class="badge">borrador</span>':'');
   $("#dchips").innerHTML=`<span class="chip lime">⏱ <b>${s.total}</b></span><span class="chip">👥 ${s.who}</span><span class="chip">🧪 ${s.prod}</span>`;
+  if(s.dilu){
+    $("#droute").innerHTML="";
+    $("#dbody").innerHTML=renderDiluDetail();
+    $("#dkpi").innerHTML="";
+    $("#expandAll").style.display="none";
+    $("#printBtn").textContent="🖨️ Imprimir tabla";
+    window.scrollTo(0,0); history.pushState({id},"","#"+id);
+    return;
+  }
+  $("#expandAll").style.display="";
+  $("#printBtn").textContent="🖨️ Hoja de control (imprimir)";
   // ruta
   $("#droute").innerHTML=`<div class="route"><div class="rt">Ruta del servicio · ${s.flow.length} fases</div><ol>`+
     s.flow.map(f=>`<li>${f.n.replace(/^\d+\)\s*/,"")} <span class="rh">${f.t}</span></li>`).join("")+`</ol>`+
@@ -930,12 +1003,16 @@ const CHECK={
   inicio:["Fotografías de recepción tomadas (mínimo 8)","Estado del vehículo revisado con el cliente presente","Daños previos documentados y comunicados","Alcance del servicio explicado (incluye y NO incluye)","Hora de entrega estimada confirmada","Objetos personales del cliente en bolsa identificada","Aspiradora industrial funcionando","Máquina de vapor lista y con agua","Extractora funcionando + aire comprimido disponible","Set completo de brochas limpias","Microfibras diferenciadas por zona","Productos del servicio disponibles y suficientes","Área de trabajo limpia y organizada"],
   final:["Mejora visual mínima del 80% en todo el interior","Cielo limpio sin manchas ni humedad","Postes A, B y C limpios sin residuos","Puertas: paneles, manijas, botones, compartimentos y bocinas","Tablero limpio, sin producto en pantallas","Consola, portavasos y palanca limpios","Asientos y vestiduras sin manchas ni humedad al tacto","Cinturones limpios y secos antes de enrollar","Rieles limpios con deslizamiento verificado","Alfombra y cajuela aspiradas, sin suciedad visible","Plásticos hidratados mate/satinado, sin exceso","Cristales sin rayas, manchas ni neblina","Tapetes colocados y objetos del cliente devueltos","Sin humedad ni olor a químico","Fotografías y video finales tomados","Vehículo aprobado para entrega"]
  },
+ sop3:{
+  inicio:["Pintura corregida y aprobada bajo lámpara (sin swirls, hologramas ni haze)","Superficie descontaminada (hierro + clay): se siente como cristal","Doble panel wipe con IPA al 20% hecho — sin aceites de pulido","Panel FRÍO 15–25°C, sin sol directo","Taller sin polvo, buena luz cruzada","Aplicador limpio y dedicado al producto correcto","3 microfibras de nivelado limpias (corte / nivelado / acabado)","Producto correcto y suficiente para el paquete vendido","Molduras y plásticos sensibles protegidos si el coating no es compatible","Temporizador listo para controlar el flash"],
+  final:["Sin high spots bajo lámpara en ningún panel","Brillo y profundidad uniformes en toda la pintura","Hidrofobicidad NO probada mojando el coche recién aplicado","Sin coating en plásticos, molduras o emblemas no tratados","Sin gotas de agua atrapadas en juntas","Capas correctas según el paquete (1 capa / doble capa)","Curado respetado: mínimo 12 h bajo techo para 3 y 5 años","Fotografías finales tomadas (mín 5)","Cliente informado de los cuidados de los primeros 7 días","Vehículo aprobado para entrega"]
+ },
  gen:{
   inicio:["Estado del vehículo revisado; fotos si hay daño visible","Herramientas y productos del servicio listos","Vehículo posicionado correctamente"],
   final:["Trabajo ejecutado según el proceso","Revisión final con luz: sin residuos ni zonas sin tratar","Fotografías finales tomadas y reseña solicitada","Vehículo aprobado para entrega"]
  }
 };
-function clFor(cat){ return cat==="Interior"?CHECK.sop2 : (cat==="Adicionales"||cat==="Reglas y seguridad")?CHECK.gen : CHECK.sop1; }
+function clFor(cat){ return cat==="Cerámicos"?CHECK.sop3 : cat==="Interior"?CHECK.sop2 : (cat==="Adicionales"||cat==="Reglas y seguridad")?CHECK.gen : CHECK.sop1; }
 function buildSheet(s){
   const cl=clFor(s.cat);
   const items=a=>a.map(i=>`<li><span class="bx"></span><span>${i}</span></li>`).join("");
@@ -954,9 +1031,61 @@ function buildSheet(s){
     <div class="sh-sign"><div class="sg"><div class="sg-line"></div><span>Firma del técnico</span></div><div class="sg"><div class="sg-line"></div><span>Aprobó — certificado / CEO</span></div></div>
     <div class="sh-foot">VAM Garage · Pachuca, Hidalgo · Estándar VAM: el trabajo termina con cero observaciones, orgulloso de publicarlo y cobrar el 100%.</div>`;
 }
+/* ===== Tabla de diluciones (fuente única) ===== */
+const DILU = {
+  diluibles:[
+    {p:"APC — interiores", u:"Tablero, puertas, postes, plásticos", d:"10+1", facil:"100 ml + 1 L agua", atom:"90 ml prod + 910 ml agua", n:"A la brocha o microfibra, nunca directo a pantallas"},
+    {p:"APC — prelavado carrocería", u:"Prelavado sin contacto", d:"10+1", facil:"100 ml + 1 L agua", atom:"90 ml prod + 910 ml agua", n:"De abajo hacia arriba, no dejar secar"},
+    {p:"APC — motor", u:"Plásticos y tolvas del motor", d:"15+1 a 20+1", facil:"100 ml + 1.5–2 L agua", atom:"50–65 ml prod + 935–950 ml agua", n:"Motor frío, evitar zonas eléctricas"},
+    {p:"Desengrasante", u:"Grasa localizada, zonas bajas", d:"5+1 a 8+1", facil:"100 ml + 500–800 ml agua", atom:"110–165 ml prod + 835–890 ml agua", n:"Solo en la zona; nunca en conectores ni sensores"},
+    {p:"IPA / Panel wipe", u:"Limpieza previa al cerámico", d:"20%", facil:"100 ml IPA + 400 ml agua", atom:"200 ml IPA + 800 ml agua", n:"Agua destilada · doble wipe en 3 y 5 años"},
+    {p:"Champú pH neutro", u:"Lavado a dos cubetas", d:"Según etiqueta", facil:"Por cubeta", atom:"—", n:"Sin cera si va cerámico después"},
+  ],
+  listos:[
+    {p:"CanCoat Evo", u:"Cerámico 1 año — directo con aplicador"},
+    {p:"Gtecnic", u:"Cerámico 3 años — directo"},
+    {p:"Gyeon Mohs EVO ×2", u:"Cerámico 5 años (doble capa) — directo"},
+    {p:"Gyeon Matte EVO", u:"Cerámico mate 2 años — directo"},
+    {p:"Iron Remover", u:"Descontaminación férrica — directo sobre pintura fría"},
+    {p:"Compounds / pulimentos", u:"DA Course, Rupes Advance, WRC, Gloss — directo al pad"},
+  ],
+  confirmar:[
+    {p:"LPV", u:"Interiores"},
+    {p:"Black Trike", u:"Llantas / gomas"},
+    {p:"Limpiador de vidrios", u:"Cristales"},
+    {p:"Lubricante de clay", u:"Descontaminación mecánica"},
+    {p:"Dressing", u:"Llantas y plásticos"},
+    {p:"Limpiador de rines", u:"Barril / cara del rin"},
+  ]
+};
+const DILU_TH=`<thead><tr><th>Producto</th><th>Para qué</th><th>Dilución</th><th>Mezcla fácil</th><th>Atomizador 1 L</th><th>Notas</th></tr></thead>`;
+function diluBody(){
+  const A=DILU.diluibles.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td class="dil">${r.d}</td><td class="mix">${r.facil}</td><td class="mix">${r.atom}</td><td>${r.n}</td></tr>`).join("");
+  const B=DILU.listos.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td colspan="3"><span class="rtu">Listo · no diluir</span></td><td>Se aplica directo</td></tr>`).join("");
+  const C=DILU.confirmar.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td class="dil qmark">❓</td><td class="mix qmark">— por definir —</td><td class="mix qmark">—</td><td>Confirmar dilución de la etiqueta</td></tr>`).join("");
+  return {A,B,C};
+}
+function renderDiluDetail(){
+  const {A,B,C}=diluBody();
+  return `<div class="dilu-legend"><b>Cómo se lee:</b> <code>10+1</code> = 10 medidas de agua + 1 de producto (11 partes en total). Usa la misma medida para las dos. Fórmula: producto = total ÷ (N+1); el resto es agua.</div>
+    <div class="dilu-sub">1 · Se diluyen</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${A}</tbody></table></div>
+    <div class="dilu-sub">2 · Listos para usar</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${B}</tbody></table></div>
+    <div class="dilu-sub">3 · Por confirmar</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${C}</tbody></table></div>`;
+}
+function buildDiluSheet(){
+  const {A,B,C}=diluBody();
+  $("#sheet").innerHTML=`<div class="sh-band"></div>
+    <div class="sh-head"><div class="sh-brand"><div class="sh-mark">V</div><div><div class="sh-name">VAM GARAGE</div><div class="sh-subt">Estudio automotriz premium · Pachuca</div></div></div><div class="sh-doc"><div class="sh-doc-t">Tabla de Diluciones</div><div class="sh-doc-s">Referencia de taller</div></div></div>
+    <div class="dilu-plegend"><b>Cómo se lee:</b> <code>10+1</code> = 10 medidas de agua + 1 de producto (11 partes). Fórmula: producto = total ÷ (N+1); el resto es agua.</div>
+    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">1</span><h3>Se diluyen</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${A}</tbody></table></div>
+    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">2</span><h3>Listos para usar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${B}</tbody></table></div>
+    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">3</span><h3>Por confirmar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${C}</tbody></table></div>
+    <div class="sh-foot" style="margin-top:14px">Diluciones del bloque 1 = SOPs VAM. Cada producto de marca puede traer su propia dilución en la etiqueta — si difiere, manda la etiqueta.</div>`;
+}
+function openDiluSheet(){ buildDiluSheet(); const w=$("#sheetWrap"); w.classList.add("open"); w.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
 function openSheet(s){ buildSheet(s); const w=$("#sheetWrap"); w.classList.add("open"); w.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
 function closeSheet(){ const w=$("#sheetWrap"); w.classList.remove("open"); w.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
-$("#printBtn").onclick=()=>{ if(currentSvc) openSheet(currentSvc); };
+$("#printBtn").onclick=()=>{ if(!currentSvc) return; currentSvc.dilu?openDiluSheet():openSheet(currentSvc); };
 $("#sheetPrint").onclick=()=>window.print();
 $("#sheetClose").onclick=closeSheet;
 $("#sheetWrap").onclick=e=>{ if(e.target.id==="sheetWrap") closeSheet(); };
