@@ -1039,8 +1039,14 @@ const DILU = {
     {p:"APC — motor", u:"Plásticos y tolvas del motor", d:"15+1 a 20+1", facil:"100 ml + 1.5–2 L agua", atom:"50–65 ml prod + 935–950 ml agua", n:"Motor frío, evitar zonas eléctricas"},
     {p:"Desengrasante", u:"Grasa localizada, zonas bajas", d:"5+1 a 8+1", facil:"100 ml + 500–800 ml agua", atom:"110–165 ml prod + 835–890 ml agua", n:"Solo en la zona; nunca en conectores ni sensores"},
     {p:"IPA / Panel wipe", u:"Limpieza previa al cerámico", d:"20%", facil:"100 ml IPA + 400 ml agua", atom:"200 ml IPA + 800 ml agua", n:"Agua destilada · doble wipe en 3 y 5 años"},
-    {p:"Champú pH neutro", u:"Lavado a dos cubetas", d:"Según etiqueta", facil:"Por cubeta", atom:"—", n:"Sin cera si va cerámico después"},
+    {p:"Champú Ultra Wash", u:"Lavado a dos cubetas", d:"20–30 ml / cubeta 15 L", facil:"2–3 tapas por cubeta de 15 L", atom:"—", n:"Autofinish Ultra Wash · pH balanceado, no remueve ceras/selladores · 1 L ≈ 50 lavadas"},
     {p:"Limpiador de vidrios", u:"Cristales interior y exterior", d:"1+1", facil:"250 ml alcohol + 250 ml agua", atom:"500 ml alcohol + 500 ml agua", n:"50% alcohol isopropílico, 50% agua"},
+    {p:"WRC — Water Spot Remover", u:"Lluvia ácida / manchas de agua", d:"3+1 (media)", facil:"250 ml prod + 750 ml agua", atom:"250 ml prod + 750 ml agua", n:"Autofinish WSR · fuerte 2+1 · media 3+1 · suave 5+1 · superficie fría y en sombra, con guantes"},
+    {p:"Lubricante de clay (ECOWASH PRO)", u:"Descontaminación mecánica con arcilla", d:"8+1", facil:"100 ml prod + 800 ml agua", atom:"110 ml prod + 890 ml agua", n:"ECOWASH PRO · también lavado en seco 4+1 y detallador 6+1"},
+    {p:"Dressing (Gloss)", u:"Llantas, gomas, plásticos, motor", d:"1+1 a 4+1", facil:"medio 2+1: 300 ml prod + 600 ml agua", atom:"alto 1+1 · medio 2+1 · satinado 4+1", n:"Autofinish Gloss · base agua, protección UV, no grasoso · agitar antes"},
+    {p:"Super Cleaner (rines)", u:"Rines, llantas y tolvas", d:"150 ml / L", facil:"150 ml prod + 850 ml agua", atom:"150 ml prod + 850 ml agua", n:"Coincide con Citric a fuerza fuerte (≈5+1) · confirmar si es Citric y el bote"},
+    {p:"Champú de preparación", u:"Prelavado / espuma de preparación", d:"20+1", facil:"50 ml prod + ~1 L agua", atom:"50 ml prod + 950 ml agua", n:"Confirmar producto exacto (¿Ultra Wash como prelavado?)"},
+    {p:"Aeder (ácido)", u:"Limpieza ácida pesada", d:"2+1", facil:"150 ml prod + 300 ml agua (bote 450 ml)", atom:"330 ml prod + 670 ml agua", n:"No es Autofinish · confirmar marca/nombre · guantes y protección"},
   ],
   listos:[
     {p:"CanCoat Evo", u:"Cerámico 1 año — directo con aplicador"},
@@ -1048,15 +1054,11 @@ const DILU = {
     {p:"Gyeon Mohs EVO ×2", u:"Cerámico 5 años (doble capa) — directo"},
     {p:"Gyeon Matte EVO", u:"Cerámico mate 2 años — directo"},
     {p:"Iron Remover", u:"Descontaminación férrica — directo sobre pintura fría"},
-    {p:"Compounds / pulimentos", u:"DA Course, Rupes Advance, WRC, Gloss — directo al pad"},
+    {p:"Compounds / pulimentos", u:"DA Course, Rupes Advance — directo al pad"},
+    {p:"LPV", u:"Interiores — se rellena directo, sin diluir"},
+    {p:"Black Trike", u:"Llantas / gomas — se rellena directo, sin diluir"},
   ],
-  confirmar:[
-    {p:"LPV", u:"Interiores"},
-    {p:"Black Trike", u:"Llantas / gomas"},
-    {p:"Lubricante de clay", u:"Descontaminación mecánica"},
-    {p:"Dressing", u:"Llantas y plásticos"},
-    {p:"Limpiador de rines", u:"Barril / cara del rin"},
-  ]
+  confirmar:[]
 };
 const DILU_TH=`<thead><tr><th>Producto</th><th>Para qué</th><th>Dilución</th><th>Mezcla fácil</th><th>Atomizador 1 L</th><th>Notas</th></tr></thead>`;
 function diluBody(){
