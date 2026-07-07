@@ -1034,55 +1034,56 @@ function buildSheet(s){
 /* ===== Tabla de diluciones (fuente única) ===== */
 const DILU = {
   diluibles:[
-    {p:"APC — interiores", u:"Tablero, puertas, postes, plásticos", d:"10+1", facil:"100 ml + 1 L agua", atom:"90 ml prod + 910 ml agua", n:"A la brocha o microfibra, nunca directo a pantallas"},
-    {p:"APC — prelavado carrocería", u:"Prelavado sin contacto", d:"10+1", facil:"100 ml + 1 L agua", atom:"90 ml prod + 910 ml agua", n:"De abajo hacia arriba, no dejar secar"},
-    {p:"APC — motor", u:"Plásticos y tolvas del motor", d:"15+1 a 20+1", facil:"100 ml + 1.5–2 L agua", atom:"50–65 ml prod + 935–950 ml agua", n:"Motor frío, evitar zonas eléctricas"},
-    {p:"Desengrasante", u:"Grasa localizada, zonas bajas", d:"5+1 a 8+1", facil:"100 ml + 500–800 ml agua", atom:"110–165 ml prod + 835–890 ml agua", n:"Solo en la zona; nunca en conectores ni sensores"},
-    {p:"IPA / Panel wipe", u:"Limpieza previa al cerámico", d:"20%", facil:"100 ml IPA + 400 ml agua", atom:"200 ml IPA + 800 ml agua", n:"Agua destilada · doble wipe en 3 y 5 años"},
-    {p:"Champú Ultra Wash", u:"Lavado a dos cubetas", d:"20–30 ml / cubeta 15 L", facil:"2–3 tapas por cubeta de 15 L", atom:"—", n:"Autofinish Ultra Wash · pH balanceado, no remueve ceras/selladores · 1 L ≈ 50 lavadas"},
-    {p:"Limpiador de vidrios", u:"Cristales interior y exterior", d:"1+1", facil:"250 ml alcohol + 250 ml agua", atom:"500 ml alcohol + 500 ml agua", n:"50% alcohol isopropílico, 50% agua"},
-    {p:"WRC — Water Spot Remover", u:"Lluvia ácida / manchas de agua", d:"3+1 (media)", facil:"250 ml prod + 750 ml agua", atom:"250 ml prod + 750 ml agua", n:"Autofinish WSR · fuerte 2+1 · media 3+1 · suave 5+1 · superficie fría y en sombra, con guantes"},
-    {p:"Lubricante de clay (ECOWASH PRO)", u:"Descontaminación mecánica con arcilla", d:"8+1", facil:"100 ml prod + 800 ml agua", atom:"110 ml prod + 890 ml agua", n:"ECOWASH PRO · también lavado en seco 4+1 y detallador 6+1"},
-    {p:"Dressing (Gloss)", u:"Llantas, gomas, plásticos, motor", d:"1+1 a 4+1", facil:"medio 2+1: 300 ml prod + 600 ml agua", atom:"alto 1+1 · medio 2+1 · satinado 4+1", n:"Autofinish Gloss · base agua, protección UV, no grasoso · agitar antes"},
-    {p:"Super Cleaner (rines)", u:"Rines, llantas y tolvas", d:"150 ml / L", facil:"150 ml prod + 850 ml agua", atom:"150 ml prod + 850 ml agua", n:"Coincide con Citric a fuerza fuerte (≈5+1) · confirmar si es Citric y el bote"},
-    {p:"Champú de preparación", u:"Prelavado / espuma de preparación", d:"20+1", facil:"50 ml prod + ~1 L agua", atom:"50 ml prod + 950 ml agua", n:"Confirmar producto exacto (¿Ultra Wash como prelavado?)"},
-    {p:"Aeder (ácido)", u:"Limpieza ácida pesada", d:"2+1", facil:"150 ml prod + 300 ml agua (bote 450 ml)", atom:"330 ml prod + 670 ml agua", n:"No es Autofinish · confirmar marca/nombre · guantes y protección"},
+    {p:"APC — interiores", u:"Tablero, puertas, postes, plásticos", d:"10+1", r1:"90 ml + 910 ml agua", r5:"45 ml + 455 ml agua", n:"A la brocha o microfibra · nunca directo a pantallas"},
+    {p:"APC — prelavado carrocería", u:"Prelavado sin contacto", d:"10+1", r1:"90 ml + 910 ml agua", r5:"45 ml + 455 ml agua", n:"De abajo hacia arriba · no dejar secar"},
+    {p:"APC — motor", u:"Plásticos y tolvas del motor", d:"15+1 a 20+1", r1:"50–65 ml + resto agua", r5:"25–33 ml + resto agua", n:"Motor frío · evitar zonas eléctricas"},
+    {p:"Desengrasante", u:"Grasa localizada, zonas bajas", d:"5+1 a 8+1", r1:"110–165 ml + resto agua", r5:"55–83 ml + resto agua", n:"Solo en la zona · nunca en conectores ni sensores"},
+    {p:"IPA / Panel wipe", u:"Limpieza previa al cerámico", d:"20%", r1:"200 ml IPA + 800 ml agua", r5:"100 ml IPA + 400 ml agua", n:"Agua destilada · doble wipe en 3 y 5 años"},
+    {p:"Champú Ultra Wash", u:"Lavado a dos cubetas", d:"20–30 ml / cubeta 15 L", r1:"—", r5:"—", n:"Autofinish Ultra Wash · pH balanceado · no remueve ceras/selladores · 2–3 tapas por cubeta · 1 L ≈ 50 lavadas"},
+    {p:"Limpiador de vidrios", u:"Cristales interior y exterior", d:"1+1", r1:"500 ml alcohol + 500 ml agua", r5:"250 ml alcohol + 250 ml agua", n:"50% alcohol isopropílico · 50% agua"},
+    {p:"WRC — Water Spot Remover", u:"Lluvia ácida / manchas de agua", d:"3+1 (media)", r1:"250 ml + 750 ml agua", r5:"125 ml + 375 ml agua", n:"Autofinish WSR · fuerte 2+1 · media 3+1 · suave 5+1 · superficie fría y en sombra, con guantes"},
+    {p:"Lubricante de clay (ECOWASH PRO)", u:"Descontaminación mecánica con arcilla", d:"8+1", r1:"110 ml + 890 ml agua", r5:"55 ml + 445 ml agua", n:"ECOWASH PRO · también lavado en seco 4+1 y detallador 6+1"},
+    {p:"Dressing (Gloss)", u:"Llantas, gomas, plásticos, motor", d:"2+1 (medio)", r1:"333 ml + 667 ml agua", r5:"167 ml + 333 ml agua", n:"Autofinish Gloss · agitar · brillo alto 1+1 · satinado 4+1 · base agua, protección UV"},
+    {p:"Super Cleaner (rines)", u:"Rines, llantas y tolvas", d:"150 ml / L", r1:"150 ml + 850 ml agua", r5:"75 ml + 425 ml agua", n:"Coincide con Citric a fuerza fuerte (≈5+1) · confirmar si es Citric y el bote", c:true},
+    {p:"Champú de preparación", u:"Prelavado / espuma de preparación", d:"20+1", r1:"48 ml + 952 ml agua", r5:"24 ml + 476 ml agua", n:"Confirmar producto exacto (¿Ultra Wash como prelavado?)", c:true},
+    {p:"Aeder (ácido)", u:"Limpieza ácida pesada", d:"2+1", r1:"333 ml + 667 ml agua", r5:"167 ml + 333 ml agua", n:"No es Autofinish · confirmar marca/nombre · guantes y protección", c:true},
   ],
   listos:[
     {p:"CanCoat Evo", u:"Cerámico 1 año — directo con aplicador"},
     {p:"Gtecnic", u:"Cerámico 3 años — directo"},
     {p:"Gyeon Mohs EVO ×2", u:"Cerámico 5 años (doble capa) — directo"},
     {p:"Gyeon Matte EVO", u:"Cerámico mate 2 años — directo"},
-    {p:"Iron Remover", u:"Descontaminación férrica — directo sobre pintura fría"},
+    {p:"Iron Remover (Ferric)", u:"Descontaminación férrica — directo sobre pintura fría"},
     {p:"Compounds / pulimentos", u:"DA Course, Rupes Advance — directo al pad"},
     {p:"LPV", u:"Interiores — se rellena directo, sin diluir"},
     {p:"Black Trike", u:"Llantas / gomas — se rellena directo, sin diluir"},
   ],
   confirmar:[]
 };
-const DILU_TH=`<thead><tr><th>Producto</th><th>Para qué</th><th>Dilución</th><th>Mezcla fácil</th><th>Atomizador 1 L</th><th>Notas</th></tr></thead>`;
+const DILU_TH=`<thead><tr><th>Producto</th><th>Para qué</th><th>Dilución</th><th>Bote 1 L</th><th>Bote 500 ml</th><th>Notas</th></tr></thead>`;
 function diluBody(){
-  const A=DILU.diluibles.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td class="dil">${r.d}</td><td class="mix">${r.facil}</td><td class="mix">${r.atom}</td><td>${r.n}</td></tr>`).join("");
+  const conf=r=>r.c?' <span class="qmark" title="confirmar producto">⚠️</span>':'';
+  const A=DILU.diluibles.map(r=>`<tr><td class="prod">${r.p}${conf(r)}</td><td>${r.u}</td><td class="dil">${r.d}</td><td class="mix">${r.r1}</td><td class="mix">${r.r5}</td><td>${r.n}</td></tr>`).join("");
   const B=DILU.listos.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td colspan="3"><span class="rtu">Listo · no diluir</span></td><td>Se aplica directo</td></tr>`).join("");
-  const C=DILU.confirmar.map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td class="dil qmark">❓</td><td class="mix qmark">— por definir —</td><td class="mix qmark">—</td><td>Confirmar dilución de la etiqueta</td></tr>`).join("");
+  const C=(DILU.confirmar||[]).map(r=>`<tr><td class="prod">${r.p}</td><td>${r.u}</td><td class="dil qmark">❓</td><td class="mix qmark">— por definir —</td><td class="mix qmark">—</td><td>Confirmar dilución de la etiqueta</td></tr>`).join("");
   return {A,B,C};
 }
 function renderDiluDetail(){
   const {A,B,C}=diluBody();
-  return `<div class="dilu-legend"><b>Cómo se lee:</b> <code>10+1</code> = 10 medidas de agua + 1 de producto (11 partes en total). Usa la misma medida para las dos. Fórmula: producto = total ÷ (N+1); el resto es agua.</div>
+  return `<div class="dilu-legend"><b>Cómo se lee:</b> <code>10+1</code> = 10 medidas de agua + 1 de producto. ⚠️ <b>OJO:</b> las etiquetas Autofinish lo dicen AL REVÉS (1:3 = 1 producto : 3 agua) — aquí SIEMPRE es agua+producto. Fórmula: producto = total ÷ (N+1). Los ⚠️ = producto por confirmar.</div>
     <div class="dilu-sub">1 · Se diluyen</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${A}</tbody></table></div>
-    <div class="dilu-sub">2 · Listos para usar</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${B}</tbody></table></div>
-    <div class="dilu-sub">3 · Por confirmar</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${C}</tbody></table></div>`;
+    <div class="dilu-sub">2 · Listos para usar (se rellenan directo)</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${B}</tbody></table></div>`+
+    (C?`<div class="dilu-sub">3 · Por confirmar</div><div class="dtbl-scroll"><table class="dtbl">${DILU_TH}<tbody>${C}</tbody></table></div>`:"");
 }
 function buildDiluSheet(){
   const {A,B,C}=diluBody();
   $("#sheet").innerHTML=`<div class="sh-band"></div>
     <div class="sh-head"><div class="sh-brand"><div class="sh-mark">V</div><div><div class="sh-name">VAM GARAGE</div><div class="sh-subt">Estudio automotriz premium · Pachuca</div></div></div><div class="sh-doc"><div class="sh-doc-t">Tabla de Diluciones</div><div class="sh-doc-s">Referencia de taller</div></div></div>
-    <div class="dilu-plegend"><b>Cómo se lee:</b> <code>10+1</code> = 10 medidas de agua + 1 de producto (11 partes). Fórmula: producto = total ÷ (N+1); el resto es agua.</div>
+    <div class="dilu-plegend"><b>Cómo se lee:</b> <code>10+1</code> = 10 agua + 1 producto. <b>⚠️ Las etiquetas Autofinish lo dicen AL REVÉS</b> (1:3 = 1 producto : 3 agua) — esta tabla SIEMPRE es agua+producto. Fórmula: producto = total ÷ (N+1).</div>
     <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">1</span><h3>Se diluyen</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${A}</tbody></table></div>
-    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">2</span><h3>Listos para usar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${B}</tbody></table></div>
-    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">3</span><h3>Por confirmar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${C}</tbody></table></div>
-    <div class="sh-foot" style="margin-top:14px">Diluciones del bloque 1 = SOPs VAM. Cada producto de marca puede traer su propia dilución en la etiqueta — si difiere, manda la etiqueta.</div>`;
+    <div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">2</span><h3>Listos para usar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${B}</tbody></table></div>`+
+    (C?`<div class="sh-sec"><div class="sh-sec-h"><span class="sh-n">3</span><h3>Por confirmar</h3></div></div><div class="p-tblwrap"><table class="ptbl">${DILU_TH}<tbody>${C}</tbody></table></div>`:"")+
+    `<div class="sh-foot" style="margin-top:14px">Productos Autofinish verificados de etiqueta · Los marcados ⚠️ están pendientes de confirmar · Si la etiqueta difiere, manda la etiqueta.</div>`;
 }
 function openDiluSheet(){ buildDiluSheet(); const w=$("#sheetWrap"); w.classList.add("open"); w.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
 function openSheet(s){ buildSheet(s); const w=$("#sheetWrap"); w.classList.add("open"); w.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
