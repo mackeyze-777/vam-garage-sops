@@ -248,7 +248,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.85);backdrop-filt
       <div class="hero">
         <h2>Manual de <span class="ac">Operaciones</span></h2>
         <p>El proceso real de cada servicio, paso a paso: cuánto tarda, qué hacer, cómo se ve bien hecho y qué errores evitar.</p>
-        <div class="hero-meta"><span><b>16</b> servicios</span><span><b>6</b> categorías</span><span>+ Reglas y seguridad</span></div>
+        <div class="hero-meta"><span><b>24</b> servicios</span><span><b>7</b> categorías</span><span>+ Reglas y seguridad</span></div>
       </div>
     </div>
     <div class="filterbar">
@@ -809,6 +809,199 @@ const DATA = [
      ["El motor sale: limpio, seco, sin exceso de dressing, sin olor fuerte a químico, sin escurrimientos, plásticos uniformes y sin testigos nuevos.","—","Cumple el estándar de entrega",""],
      ["Si tenía grasa pesada, cables dañados, tapas flojas o riesgo eléctrico, debió quedar REGISTRADO antes de iniciar.","—","",""]]}
  ]},
+// ---- INTERIOR ESPECIALIZADO (adaptado del paquete DETALLADO SOP, nov-2026) ----
+{cat:"Interior especializado", id:"pelo-mascota", ico:"🐾", title:"Pelo de mascota", total:"1–2 h", who:"1 persona", prod:"Cepillo de goma/silicón + cepillo de taladro + aire comprimido + aspiradora",
+ note:["rule","Se hace ANTES de cualquier shampoo o limpieza de vestiduras. Lavar con pelo encima lo empeora: el pelo mojado se entierra más."],
+ flow:[
+   {n:"Expectativas y cotización", t:"5 min", who:"Encargado", steps:[
+     ["Evaluar la severidad ANTES de cotizar: más pelo = más tiempo = más precio. Nunca cotizar sin ver el auto.","3 min","Precio acorde al trabajo real","Cotizar a ciegas y comerse las horas"],
+     ["Explicar al cliente que es un trabajo intensivo. El objetivo real es 90–95% de remoción: NUNCA prometer el 100%.","2 min","Cliente con expectativa realista","Prometer que no quedará ni un pelo"]]},
+   {n:"Aspirado inicial", t:"10 min", who:"Técnico",
+    note:["info","Pasada rápida: es solo preparación, no la remoción principal. No perder tiempo aquí."], steps:[
+     ["Aspirar todas las superficies para retirar pelo suelto y basura. Pasar por costuras, ranuras y orillas sin detenerse.","10 min","Pelo suelto fuera",""]]},
+   {n:"Agitar y aspirar — repetir", t:"45–75 min", who:"Técnico",
+    note:["rule","EL MÉTODO: agitar → aspirar → repetir. Una sola pasada nunca es suficiente."], steps:[
+     ["Trabajar por secciones: asiento por asiento, panel por panel. Cepillo de goma/silicón en trazos cortos y agresivos para levantar el pelo enterrado.","—","Pelo enterrado levantado por sección",""],
+     ["Casos pesados en alfombra y tela: cepillo de taladro con presión LIGERA. La presión fuerte daña la tela.","—","","Taladro a presión fuerte (quema la tela)"],
+     ["Soplar costuras, pespuntes y rincones con aire comprimido donde el cepillo no llega.","—","Pelo fuera de las costuras",""],
+     ["Aspirar INMEDIATAMENTE después de agitar cada sección: no dejar que el pelo se vuelva a asentar. Repetir en zonas tercas las veces que haga falta.","—","Sección limpia antes de pasar a la siguiente","Agitar todo y aspirar al final"]]},
+   {n:"Detalle fino y revisión", t:"10 min", who:"Técnico", steps:[
+     ["Repasar orillas, esquinas y pespuntes buscando mechones restantes.","5 min","",""],
+     ["Revisar con luz desde varios ángulos: el pelo se esconde, sobre todo el claro. Sin mechones ni parches visibles; asientos y alfombra uniformes.","5 min","Interior uniforme bajo luz","Revisar de frente con una sola luz"],
+     ["Solo entonces continuar con el shampoo o la limpieza de vestiduras.","—","",""]]},
+   {n:"Después del trabajo", t:"15 min", who:"Técnico", steps:[
+     ["Limpiar el equipo completo: aspiradora, manguera, cepillos y accesorios (ver tarjeta Limpieza y desinfección de equipo).","15 min","Equipo listo para el siguiente auto","Pasar el equipo con pelo al siguiente trabajo"]]}
+ ]},
+{cat:"Interior especializado", id:"ozono", ico:"💨", title:"Tratamiento de ozono (olores)", total:"1.5–2 h", who:"1 persona", prod:"Máquina de ozono · SOLO después del interior completo",
+ note:["rule","El ozono NO limpia. El interior debe estar terminado al 100% (shampoo y extracción incluidos) antes de correrlo: ozono sobre un auto sucio no sirve de nada. Usarlo solo para humo (cigarro/mota), moho, mascotas y olores orgánicos fuertes; para olores leves es demasiado."],
+ flow:[
+   {n:"Expectativas con el cliente", t:"5 min", who:"Encargado", steps:[
+     ["Decir de frente ANTES de empezar: se espera una mejora significativa, NUNCA prometer eliminación total del olor.","2 min","Cliente con expectativa realista","Prometer que el olor desaparece al 100%"],
+     ["Cigarro y mota en especial pueden no desaparecer por completo: decirlo con claridad.","2 min","",""],
+     ["Avisar que después del tratamiento queda un olor tipo cloro: es normal y se va solo en unos días.","1 min","","Que el cliente se sorprenda con el olor a cloro"]]},
+   {n:"Tiempos según el olor", t:"referencia", who:"Técnico",
+    note:["info","Nivel ligero: 15–20 min (un ciclo). Moderado: 30 min (un ciclo). Humo pesado / moho: 45–60 min MÁXIMO, o mejor 2 ciclos de 30 min. NUNCA pasar de 60 min por ciclo."], steps:[]},
+   {n:"Correr la máquina", t:"15–60 min", who:"Técnico", steps:[
+     ["Preparar el auto: encendido, A/C en recirculación, ventilador a velocidad media, todas las ventanas y puertas cerradas.","3 min","Aire circulando dentro del auto","Correr ozono con el auto apagado"],
+     ["Si el olor se concentra atrás, dejar la cajuela ligeramente abierta hacia la cabina.","—","",""],
+     ["Colocar la máquina en la consola central, encenderla, cerrar todo y ALEJARSE de inmediato.","2 min","Nadie cerca del auto","Quedarse junto al auto con el ozono corriendo"],
+     ["NADIE se acerca al vehículo mientras corre el ozono. Mantener a todos lejos del área.","—","","Que alguien abra la puerta a medio ciclo"],
+     ["Aprovechar el tiempo: avanzar el exterior u otro trabajo mientras corre el ciclo.","—","Tiempo productivo",""]]},
+   {n:"Ventilar el vehículo", t:"15–30 min", who:"Técnico",
+    note:["rule","NO subirse al auto hasta que esté completamente ventilado."], steps:[
+     ["Apagar la máquina, abrir todas las puertas y dejar el A/C al máximo 15–30 minutos.","15-30 min","Auto ventilado por completo","Entrar al auto recién apagada la máquina"],
+     ["Apagar el auto, repaso final: limpiar cristales, pasada rápida de aspirado si hace falta, revisar todo antes de llamar al cliente.","10 min","Listo para entrega",""]]},
+   {n:"Entrega e indicaciones", t:"5 min", who:"Encargado", steps:[
+     ["Recomendar cambiar el filtro de cabina si es posible.","—","",""],
+     ["Indicar: manejar con ventanas abiertas lo más posible los próximos 2–3 días.","—","Cliente sabe qué esperar",""],
+     ["Recordar que el olor tipo cloro es normal y se va solo.","—","",""]]}
+ ]},
+{cat:"Interior especializado", id:"moho", ico:"🦠", title:"Eliminación de moho", total:"2.5–4 h", who:"1 persona · PPE completo", prod:"Producto antimoho + peróxido (agua oxigenada) + vapor + APC",
+ note:["rule","PPE COMPLETO OBLIGATORIO: guantes de nitrilo + mascarilla + goggles ANTES de abrir el auto. Las esporas de moho viajan por el aire y son dañinas al respirarlas. Nunca trabajar moho sin protección."],
+ flow:[
+   {n:"Evaluar y poner expectativas", t:"15 min", who:"Encargado",
+    note:["info","Severidad: LIGERO (manchas chicas superficiales, olor leve) = antimoho + cepillo + vapor + peróxido. MODERADO (varias zonas, olor notorio) = tratamiento completo + recomendar ozono. SEVERO (cobertura grande, penetración profunda, olor fuerte) = tratamiento completo + ozono obligatorio + hablar claro con el cliente."], steps:[
+     ["Inspeccionar TODO el interior antes de cotizar: asientos, alfombra, cielo, paneles, cajuela. Nunca cotizar sin ver la extensión real.","10 min","Cotización sobre el daño completo","Cotizar viendo solo un asiento"],
+     ["Ser honesto: la meta es una mejora significativa. Moho profundo o viejo puede dejar mancha aun después de eliminarlo. NUNCA prometer remoción total ni que el olor desaparecerá por completo.","3 min","Cliente con expectativa realista","Prometer que queda como nuevo"],
+     ["Preguntar si hay fuga o entrada de agua conocida. Si la fuente de humedad no se arregla, el moho REGRESA sin importar el tratamiento: decírselo al cliente.","2 min","Cliente avisado de la causa raíz","Callarse y que regrese en un mes"]]},
+   {n:"Preparación — PPE y ventilación", t:"10 min", who:"Técnico", steps:[
+     ["Guantes, mascarilla y goggles puestos ANTES de abrir el vehículo.","2 min","Protección completa puesta","Abrir el auto sin protección"],
+     ["Abrir todas las puertas y ventanas: trabajar ventilado en todo momento.","2 min","Área ventilada",""],
+     ["Sacar objetos sueltos, basura y pertenencias del vehículo.","6 min","",""]]},
+   {n:"Remoción en seco — aspirar PRIMERO", t:"20 min", who:"Técnico",
+    note:["rule","Aspirar ANTES de cualquier producto: aplicar líquido sobre moho seco y suelto ESPARCE las esporas."], steps:[
+     ["Aflojar el moho superficial con cepillo y aspirar todas las zonas afectadas.","15 min","Moho suelto retirado en seco",""],
+     ["Vaciar el contenido de la aspiradora de inmediato en una bolsa de plástico sellada, lejos del equipo limpio.","5 min","Residuos sellados y fuera","Vaciar la aspiradora junto al equipo limpio"]]},
+   {n:"Producto antimoho + vapor", t:"45–90 min", who:"Técnico", steps:[
+     ["Aplicar el producto antimoho en todas las zonas afectadas, trabajando sección por sección sin saltarse áreas.","—","Todas las zonas tratadas","Correr y dejar zonas sin tratar"],
+     ["Dejar actuar según la etiqueta del producto: no limpiar de inmediato. Agitar con cepillo suave en tela, costuras y pespuntes.","—","Producto trabajando el tiempo correcto","Retirarlo antes de tiempo"],
+     ["Rematar con vapor en tela y superficies duras: el calor mata el moho de raíz. Limpiar de inmediato con microfibra dedicada.","—","Zona tratada con calor",""],
+     ["No reutilizar microfibras en zonas limpias: apartarlas o desecharlas después de cada sección.","—","","Arrastrar la microfibra sucia al resto del auto"]]},
+   {n:"Tratamiento con peróxido", t:"20 min", who:"Técnico", steps:[
+     ["Rociar peróxido sobre TODAS las superficies tratadas: neutraliza esporas y residuo restantes. En tela clara o delicada, probar primero en zona oculta.","10 min","Zonas neutralizadas","Saltarse el peróxido"],
+     ["Dejar actuar unos minutos y limpiar con microfibra limpia. Atención extra a costuras, orillas y zonas con mancha visible.","10 min","",""]]},
+   {n:"Limpieza general", t:"30 min", who:"Técnico", steps:[
+     ["Limpiar paneles, superficies duras y plásticos con APC.","25 min","Interior completo limpio",""],
+     ["Si el servicio va junto con Vestiduras: continuar desde aquí con el SOP-002 completo.","—","",""]]},
+   {n:"Revisión final y ozono", t:"15 min", who:"Encargado", steps:[
+     ["Revisar cada superficie con buena luz: sin moho visible, mancha mínima. Prueba de olor: reducción clara.","10 min","Pasa inspección visual y de olor",""],
+     ["Casos moderados/severos: recomendar ozono para rematar el olor residual.","—","",""],
+     ["Indicar al cliente: ventilar el auto seguido y, si hay fuga, arreglarla o el moho regresa.","5 min","Cliente sabe cómo evitar que regrese",""]]},
+   {n:"Después del trabajo — OBLIGATORIO", t:"30 min", who:"Técnico",
+    note:["rule","Trabajo de moho = desinfección COMPLETA de todo el equipo que tocó el auto (ver tarjeta Limpieza y desinfección de equipo). Las microfibras muy manchadas se desechan."], steps:[
+     ["Desinfectar aspiradora, mangueras, cepillos, vaporizador y accesorios. Lavar microfibras aparte en agua caliente o desecharlas.","30 min","Cero contaminación cruzada","Usar el equipo en el siguiente auto sin desinfectar"]]}
+ ]},
+{cat:"Interior especializado", id:"cinturones-solo", ico:"🪢", title:"Cinturones de seguridad", total:"45–90 min (incl. secado)", who:"1 persona", prod:"APC suave (1:10) + cepillo suave + pinza/clip para mantener extendido",
+ note:["rule","Los cinturones son EQUIPO DE SEGURIDAD. Nunca químicos agresivos (debilitan la fibra estructural), nunca saturar de líquido y NUNCA dejar que un cinturón se retraiga húmedo."],
+ flow:[
+   {n:"Extender e inspeccionar", t:"10 min", who:"Técnico", steps:[
+     ["Extender cada cinturón a todo lo largo e inspeccionar: nivel de mugre, manchas, decoloración.","5 min","Estado real documentado",""],
+     ["Buscar deshilachado, cortes o daño estructural. Si el cinturón está dañado NO SE LIMPIA: avisar al cliente de inmediato y recomendar reemplazo.","3 min","Cinturón dañado reportado, no tocado","Limpiar un cinturón dañado"],
+     ["Sujetar el cinturón extendido con pinza o clip: así se trabaja y así se seca.","2 min","Cinturón fijo y extendido",""]]},
+   {n:"Limpieza", t:"20–30 min", who:"Técnico", steps:[
+     ["Rociar el APC diluido sobre el CEPILLO, nunca directo al cinturón.","—","Producto dosificado","Empapar el cinturón"],
+     ["Cepillar en UNA dirección, de arriba hacia abajo siguiendo el tejido, presión ligera a media. Girar el cinturón: ambas caras juntan mugre y grasa corporal.","—","Ambas caras limpias","Tallar en círculos o una sola cara"],
+     ["Cinturón muy sucio: más PASADAS, no más producto.","—","","Aplicar más producto para acabar antes"],
+     ["Limpiar con microfibra húmeda (retira mugre y residuo) y rematar con microfibra seca para sacar humedad. Repetir en todos los cinturones, delanteros y traseros.","—","Sin residuo de producto",""]]},
+   {n:"Secado completo — no se puede apurar", t:"30–60 min", who:"Técnico",
+    note:["rule","Un cinturón retraído húmedo cría moho DENTRO del carrete: el olor regresa y la culpa será del taller."], steps:[
+     ["Dejar todos los cinturones extendidos con su pinza, secando al aire, mínimo 30–60 min según qué tanto se mojaron.","30-60 min","Secado completo al aire","Retraerlo húmedo para ganar tiempo"],
+     ["Prueba de la mano: recorrer todo el cinturón; debe sentirse COMPLETAMENTE seco antes de soltarlo.","2 min","Pasa la prueba de la mano",""]]},
+   {n:"Revisión final", t:"10 min", who:"Técnico", steps:[
+     ["Extender cada cinturón una vez más: limpio, seco, sin residuo.","5 min","",""],
+     ["Limpiar hebillas y herrajes con microfibra húmeda: juntan mugre y siempre se olvidan.","3 min","Hebillas limpias","Entregar con la hebilla sucia"],
+     ["Verificar que retrae suave. Si está duro o no retrae bien: NO forzar, avisar al cliente.","2 min","Retracción suave o reportada",""]]}
+ ]},
+{cat:"Interior especializado", id:"cielo-solo", ico:"☁️", title:"Cielo (techo interior)", total:"1–1.5 h", who:"1 persona", prod:"Limpiador suave aplicado AL CEPILLO · vapor a distancia · nunca empapar",
+ note:["rule","El líquido encharcado DISUELVE el adhesivo del cielo: se cae y se despega. Producto siempre al cepillo, nunca directo. Secar a TOQUES (presionar y levantar), nunca tallar."],
+ flow:[
+   {n:"Identificar material y estado", t:"5 min", who:"Técnico", steps:[
+     ["Identificar el material: tela/alfombrilla (lo común) o alcantara/gamuza (autos premium). El material define TODO el método.","2 min","Método correcto elegido","Tratar alcantara como tela común"],
+     ["Buscar manchas, marcas de agua, amarillamiento y sobre todo zonas CAÍDAS o despegadas: ahí NO se aplica ningún líquido sin avisar antes al cliente.","2 min","Daño previo señalado al cliente","Mojar un cielo ya despegado"],
+     ["Señalar el daño previo al cliente ANTES de empezar.","1 min","",""]]},
+   {n:"Pasada en seco", t:"10 min", who:"Técnico", steps:[
+     ["Aspirar con cepillo suave a la MÍNIMA succión, contacto ligero en todo el cielo: el polvo suelto se vuelve lodo si se moja primero.","10 min","Polvo fuera antes de mojar","Encajar la boquilla en el cielo"]]},
+   {n:"Limpieza — cielo de tela", t:"30–45 min", who:"Técnico", steps:[
+     ["Rociar el limpiador sobre el CEPILLO suave, nunca sobre el cielo. Mínimo producto: menos es más.","—","Producto dosificado al cepillo","Rociar directo al cielo"],
+     ["Trabajar en secciones chicas con movimientos circulares LIGEROS.","—","Sección por sección sin empapar",""],
+     ["Manchas tercas: vapor en potencia baja con microfibra sobre la boquilla, a unos centímetros de distancia, NUNCA pegado al cielo. Secar a toques de inmediato.","—","Mancha aflojada sin empapar el respaldo","Pegar el vaporizador al cielo"],
+     ["Secar cada sección a TOQUES con microfibra seca (presionar y levantar) y dejar airear antes de seguir.","—","Sin tallar nunca","Tallar o frotar (esparce y daña)"]]},
+   {n:"Limpieza — cielo de alcantara", t:"30–45 min", who:"Técnico",
+    note:["rule","En alcantara NUNCA usar APC ni vapor directo: daño permanente. Solo limpiador pH neutro al cepillo."], steps:[
+     ["Identificar el sentido de la felpa mirando la superficie en ángulo.","2 min","Sentido de la felpa claro",""],
+     ["Producto al cepillo, trazos ligeros SIGUIENDO el sentido de la felpa: nunca en contra, nunca en círculos. Mínimo producto y mínimas pasadas.","—","Felpa trabajada a favor","Círculos o contra la felpa"],
+     ["Secar a toques y, aún húmedo, peinar suavecito la felpa en su dirección para restaurar la textura. Secar al aire, sin calor.","—","Textura restaurada uniforme","Secadora o aire caliente directo"]]},
+   {n:"Orillas, viseras y molduras", t:"15 min", who:"Técnico", steps:[
+     ["Cepillo chico con mínimo producto en orillas y donde el cielo une con el marco.","5 min","",""],
+     ["Viseras por ambas caras con la misma técnica de toques. Molduras con APC cuidando no tocar la tela del cielo.","7 min","Viseras y bordes limpios",""],
+     ["Revisar y limpiar la zona de la luz de techo y las manijas del marco.","3 min","","Olvidar la luz de techo"]]},
+   {n:"Revisión final", t:"5 min", who:"Técnico", steps:[
+     ["Revisar con buena luz: sin rayas, sin parches mojados, sin manchas olvidadas. Pasar la mano ligera: seco y uniforme.","3 min","Cielo uniforme y seco",""],
+     ["Mancha vieja que no salió: avisar al cliente con honestidad ANTES de que él la vea. No sobre-tallar tratando de forzarla en una sesión.","2 min","Cliente avisado primero","Tallar de más y despegar el cielo"]]}
+ ]},
+{cat:"Interior especializado", id:"alcantara", ico:"🧵", title:"Alcantara / gamuza", total:"1–2 h", who:"1 persona", prod:"Limpiador pH neutro + cepillo suave DEDICADO · nunca APC concentrado ni vapor directo",
+ note:["rule","Material de alto valor: volantes, asientos, cielos y paneles de autos deportivos y premium. NUNCA APC concentrado, ni limpiador de piel, ni vapor directo. Tallar daña la felpa PERMANENTEMENTE: siempre a toques."],
+ flow:[
+   {n:"Identificar y evaluar", t:"10 min", who:"Técnico", steps:[
+     ["Confirmar que es alcantara: se siente como gamuza ultrasuave con felpa fina y direccional. Revisar dónde aparece: volante (la zona de mayor desgaste), asientos, cielo, paneles, tablero.","5 min","Material confirmado antes de aplicar nada","Adivinar el material"],
+     ["Anotar manchas, zonas lustrosas/aplastadas y desgaste ANTES de empezar; señalarlas al cliente.","5 min","Estado previo documentado",""]]},
+   {n:"Aspirado suave", t:"10 min", who:"Técnico", steps:[
+     ["Aspirar con cepillo suave y succión baja, SIGUIENDO el sentido de la felpa (verla en ángulo para ubicarlo). Atención a costuras y pespuntes.","10 min","Polvo fuera, felpa respetada","Aspirar contra la felpa"]]},
+   {n:"Test spot — siempre", t:"5 min", who:"Técnico", steps:[
+     ["Probar el limpiador en una zona oculta y revisar que no haya cambio de color ni reacción. La alcantara varía por fabricante y color.","5 min","Test aprobado antes de continuar","Aplicar directo sin probar"]]},
+   {n:"Limpieza por secciones", t:"30–60 min", who:"Técnico", steps:[
+     ["Aplicar el limpiador al CEPILLO suave, no a la superficie. Secciones chicas, movimientos circulares ligeros para levantar la mugre.","—","Mugre levantada sin saturar","Rociar directo o empapar"],
+     ["Manchas tercas: aplicar, dejar actuar 30–60 segundos y agitar suave. Costuras y orillas con cepillo chico.","—","",""],
+     ["NUNCA tallar fuerte ni usar cepillo duro: la fibra se aplasta y se hace bolitas.","—","","Cepillo duro o presión fuerte"]]},
+   {n:"Secar a toques — nunca tallar", t:"15 min", who:"Técnico", steps:[
+     ["Con microfibra limpia y seca: PRESIONAR Y LEVANTAR en el sentido de la felpa. Sección de toalla limpia para cada zona.","—","Humedad y mugre levantadas a toques","Arrastrar la toalla sucia por zonas limpias"],
+     ["Tallar empuja la mugre adentro y daña la felpa para siempre: solo toques.","—","","Frotar para acabar más rápido"]]},
+   {n:"Restaurar la felpa", t:"10 min", who:"Técnico",
+    note:["info","Este paso es el que separa el resultado profesional del amateur: la felpa peinada en húmedo queda como de fábrica."], steps:[
+     ["Aún ligeramente húmedo, peinar con el cepillo suave en trazos parejos siguiendo el sentido de la felpa.","5 min","Textura uniforme restaurada","Dejar que seque aplastada"],
+     ["Dejar secar al aire por completo: sin calor, sin secadora.","—","","Aire caliente directo"]]},
+   {n:"Revisión final", t:"5 min", who:"Técnico", steps:[
+     ["Revisar con buena luz desde varios ángulos: felpa uniforme, sin parches aplastados, sin rayas. Las inconsistencias se ven con luz lateral.","3 min","Uniforme desde todo ángulo",""],
+     ["Mancha vieja que persiste: repetir el proceso otra sesión, nunca forzarla tallando. Avisar al cliente con honestidad.","2 min","Cliente avisado, material intacto","Forzar la mancha en una sesión"]]}
+ ]},
+{cat:"Interior especializado", id:"piel-hidratacion", ico:"🧴", title:"Piel — hidratación (acondicionador)", total:"45–60 min", who:"1 persona", prod:"Acondicionador de piel + aplicador de espuma + 2 microfibras (aplicar / retirar)",
+ note:["info","Add-on después de la limpieza interior y antes de la revisión final. La piel queda ligeramente más brillante: pedir el OK del cliente antes."],
+ flow:[
+   {n:"Check-in con el cliente", t:"3 min", who:"Encargado", steps:[
+     ["Avisar que la piel quedará con un acabado ligeramente más brilloso: a algunos clientes no les gusta. Obtener su OK primero.","2 min","Cliente de acuerdo con el acabado","Aplicar sin avisar y que lo reclame"],
+     ["Confirmar alcance: ¿solo asientos o toda la piel (volante, paneles, descansabrazos)? Cotizar acorde.","1 min","Alcance claro",""]]},
+   {n:"Preparar la piel", t:"15 min", who:"Técnico", steps:[
+     ["Limpiar la piel primero con limpiador interior o APC suave: la superficie debe estar COMPLETAMENTE limpia antes de acondicionar.","10 min","Piel limpia, sin grasa ni mugre","Acondicionar sobre piel sucia (sella la mugre)"],
+     ["Test spot en zona oculta para verificar compatibilidad de color.","3 min","Test aprobado",""],
+     ["Trabajar a la sombra: la piel debe estar FRÍA al tacto. Nunca aplicar al sol o sobre piel caliente.","—","","Aplicar sobre piel asoleada"]]},
+   {n:"Aplicar acondicionador", t:"15 min", who:"Técnico", steps:[
+     ["Aplicar al pad de espuma (o microfibra si no hay pad), capa DELGADA y pareja por sección: menos es más, no sobre-aplicar.","—","Capa delgada uniforme","Empapar la piel de producto"],
+     ["Trabajar por secciones: asiento → respaldo → cabecera, y luego las demás superficies acordadas.","—","Nada sin cubrir, nada encharcado",""]]},
+   {n:"Dejar penetrar", t:"10–15 min", who:"Técnico", steps:[
+     ["Esperar 10–15 minutos antes de retirar: el acondicionador necesita penetrar.","10-15 min","Producto absorbido","Retirar de inmediato"]]},
+   {n:"Retirar y terminar", t:"10 min", who:"Técnico", steps:[
+     ["Retirar el exceso con la SEGUNDA microfibra limpia (no la de aplicar). El acabado debe sentirse suave y verse satinado natural: no grasoso ni pegajoso.","8 min","Acabado satinado, no grasoso","Saltarse el retirado (residuo pegajoso que atrapa mugre)"],
+     ["Revisión visual rápida: cobertura pareja, sin zonas olvidadas, sin rayas.","2 min","Cobertura uniforme",""]]}
+ ]},
+{cat:"Interior especializado", id:"piel-coating", ico:"💎", title:"Piel — coating cerámico", total:"1–1.5 h + 30 min curado", who:"1 persona", prod:"Coating de piel + prep (panel wipe) · ÚLTIMO paso del servicio",
+ note:["info","Producto según la línea en uso del taller (Gyeon/ArtDeshine): confirmar con el encargado QUÉ coating de piel se maneja antes de ofrecerlo. Siempre es el último paso: nunca se aplica coating sobre un auto sin detallar."],
+ flow:[
+   {n:"Antes de empezar", t:"5 min", who:"Encargado", steps:[
+     ["El detallado interior debe estar 100% TERMINADO: nunca aplicar coating sobre superficie sucia, no funciona.","—","Interior terminado y aprobado","Coatear un auto a medias"],
+     ["Confirmar alcance con el cliente: ¿solo asientos o toda la piel? Cotizar acorde.","3 min","Alcance y precio claros",""]]},
+   {n:"Preparación con panel wipe", t:"15 min", who:"Técnico",
+    note:["rule","La microfibra del prep y la del retirado del coating son SEPARADAS y dedicadas: nunca se mezclan."], steps:[
+     ["Aplicar el prep/panel wipe con su microfibra dedicada sobre toda la piel del alcance: retira residuo y prepara la superficie para que el coating ancle. NO saltarse este paso.","15 min","Piel preparada para anclar","Coatear sin prep"]]},
+   {n:"Aplicar el coating", t:"30–45 min", who:"Técnico", steps:[
+     ["Agitar el frasco mínimo 15 segundos antes de usar.","—","Producto homogéneo","Aplicar sin agitar"],
+     ["Cargar el aplicador con las gotas que indique el fabricante y extender parejo por secciones: asiento → respaldo → cabecera → demás superficies acordadas. Recargar el aplicador conforme haga falta.","—","Capa pareja sección por sección",""],
+     ["Esperar 30 segundos a 1 minuto por sección y retirar con la microfibra limpia dedicada.","—","Retirado a tiempo","Dejar pasar de más y que cure con exceso"],
+     ["Si aparece un HIGH SPOT (brillo desigual): limpiar de inmediato con el prep y re-aplicar esa sección.","—","High spot corregido al momento","Dejarlo para después (ya curado no sale)"]]},
+   {n:"Curado y entrega", t:"30 min", who:"Encargado",
+    note:["rule","30 minutos de curado: nadie toca, se sienta ni usa la piel tratada. Avisarlo ANTES de entregar las llaves."], steps:[
+     ["Revisión visual: cobertura pareja, sin rayas, sin high spots, acabado natural.","5 min","Pasa inspección",""],
+     ["Avisar al cliente del curado de 30 min y de los cuidados (no limpiadores agresivos sobre la piel coateada).","3 min","Cliente informado",""]]}
+ ]},
 // ---- REGLAS Y SEGURIDAD ----
 {cat:"Reglas y seguridad", id:"reglas", ico:"📋", title:"Reglas del taller", total:"Para todos", who:"Todo el equipo", prod:"Horario · conducta · calidad · pago",
  note:["rule","Aplican a todo el equipo. Para que las sanciones y bajas sean VÁLIDAS y no se vuelvan contra el taller: ponlas en un Reglamento Interior de Trabajo firmado por cada quien y documenta cada incumplimiento con actas."],
@@ -873,15 +1066,107 @@ const DATA = [
      ["Trapos con solvente o desengrasante: no amontonar. Residuos químicos fuera de la zona de trabajo.","—","",""],
      ["Botiquín básico y agua limpia a la mano para enjuagar ojos o piel si cae químico.","—","Listo para una emergencia menor","No tener con qué enjuagar"]]}
  ]},
+{cat:"Reglas y seguridad", id:"checklist-calidad", ico:"✅", title:"Checklist de calidad (antes de entregar)", total:"10 min por auto", who:"Técnico + Encargado", prod:"Última fase de TODO servicio · foto al grupo de WhatsApp",
+ note:["info","Por qué existe: la mayoría de los errores pasan porque el técnico termina el trabajo en su cabeza antes de terminarlo en el auto. El checklist obliga una segunda pasada con ojos frescos y atrapa el 80% de lo que se volvería queja. La foto con hora en el grupo es la EVIDENCIA que protege al técnico. Y el cliente que te ve revisar punto por punto ya se siente respetado: eso solo elimina la mayoría de las quejas chicas."],
+ flow:[
+   {n:"Cuándo empieza", t:"—", who:"Técnico",
+    note:["rule","El checklist arranca SOLO cuando crees que el servicio ya está terminado. Cada punto se verifica FÍSICAMENTE: ojos o manos sobre el punto real. Palomear sin revisar es lo mismo que mentir en el formato."], steps:[
+     ["Pregúntate: si fueras el cliente y te subieras ahorita, ¿quedarías satisfecho? Si dudas, aún no está terminado.","—","",""]]},
+   {n:"Interior", t:"4 min", who:"Técnico", steps:[
+     ["Asientos: sin manchas, migajas ni marcas grasosas.","—","",""],
+     ["Alfombras y tapetes: líneas de aspirado visibles, sin basura.","—","",""],
+     ["Tablero y pantalla: sin huellas ni rayas.","—","",""],
+     ["Rejillas de aire: sin polvo.","—","",""],
+     ["Portavasos: secos, sin residuo pegajoso.","—","",""],
+     ["Cristales por dentro: sin rayas de trapo.","—","",""],
+     ["Volante, palanca y botones: sin sensación grasosa.","—","",""],
+     ["Cajuela: aspirada y plásticos limpios.","—","",""],
+     ["PRUEBA DE OLOR: abrir la puerta y OLER la cabina. Neutro: sin químico ni humedad.","—","Huele neutro","Entregar con olor a químico o humedad"],
+     ["Paneles de puerta y manijas: limpios, sin producto acumulado.","—","",""]]},
+   {n:"Exterior", t:"4 min", who:"Técnico", steps:[
+     ["Vuelta COMPLETA a la pintura: sin mugre ni rayas de secado olvidadas.","—","",""],
+     ["Cristales por fuera: sin gotas secas ni marcas de agua.","—","",""],
+     ["Rines: rayos y birlos limpios, sin polvo de frenos ni abrillantador en la cara del rin.","—","Agacharse a ver el rin de cerca","Revisar los rines de lejos"],
+     ["Llantas: dressing parejo, sin exceso que escurra o salpique.","—","",""],
+     ["Jambas de puertas y tapón de gasolina: limpios y secos, sin hojas.","—","",""],
+     ["Faros y calaveras: claros y brillantes.","—","",""],
+     ["Emblemas: sin pulimento ni jabón atrapado.","—","",""],
+     ["Espejos: sin rayas. Molduras de plástico: acabado parejo, sin residuo blanco.","—","",""]]},
+   {n:"Toque final", t:"2 min", who:"Técnico", steps:[
+     ["Asientos, espejos, A/C y estéreo como el cliente los traía.","—","Auto como lo dejó el cliente","Entregar con el asiento movido y la radio cambiada"],
+     ["Retirar TODOS los trapos, botellas y basura del auto y del área.","—","",""],
+     ["Si el interior quedó húmedo: ventana abierta 2 cm y AVISAR al cliente.","—","Cliente avisado de la humedad",""],
+     ["Tomar 3 fotos: frente · lado · interior.","—","Evidencia del estado de entrega",""],
+     ["Foto del checklist terminado al grupo de WhatsApp del equipo ANTES de entregar. La hora del mensaje es el registro oficial. Si trabajaron 2 en el auto, los 2 firman y los 2 responden por él.","—","Evidencia enviada a tiempo","Enviarla horas después o no enviarla"]]},
+   {n:"Pedir la reseña — SIEMPRE", t:"1 min", who:"Encargado",
+    note:["info","Guion: «¿Quedó todo al gusto? Si nos regalas una reseña de 5 estrellas en Google nos ayudas muchísimo: te mando el link por WhatsApp.»"], steps:[
+     ["Pedir la reseña en la entrega, con el auto enfrente y el cliente contento. Ese es el momento: después ya no responde igual.","1 min","Reseña pedida en caliente","Dejarlo para después"]]},
+   {n:"Si el cliente reporta algo", t:"protocolo", who:"Encargado",
+    note:["rule","NUNCA discutir con el cliente ni culpar a un compañero enfrente de él. Primero se atiende al cliente, después se revisa lo interno por separado."], steps:[
+     ["Qué decir: «Gracias por avisarnos. Nos tomamos la calidad en serio y cada auto pasa por un checklist completo antes de entregarse. Lo revisamos ahorita mismo y lo dejamos bien: ¿cuándo te queda bien traerlo?»","—","Cliente atendido sin pleito","Ponerse a la defensiva"],
+     ["Queja de RESULTADO (quedó una mancha, no quedó parejo): se agenda re-servicio y se corrige. Corregimos, no reembolsamos.","—","",""],
+     ["Queja de DAÑO (me rayaron, me rompieron): revisar PRIMERO las fotos de recepción antes de comprometer nada. Si el daño estaba documentado, explicarlo con calma mostrando la foto.","—","Fotos de recepción como respaldo","Aceptar o negar sin revisar las fotos"],
+     ["Internamente: con checklist enviado, se revisa contra la evidencia y se corrige el proceso. Sin checklist enviado, la queja se asume válida y queda REGISTRO (escalera de responsabilidad: corregir → registro → amonestación). Nunca se descuenta del sueldo.","—","Consecuencias por proceso, no por bolsillo",""]]}
+ ]},
+{cat:"Reglas y seguridad", id:"equipo-limpieza", ico:"🧯", title:"Limpieza y desinfección de equipo", total:"20–40 min", who:"Quien hizo el trabajo", prod:"APC + peróxido + desinfectante · OBLIGATORIO tras moho, pelo de mascota o interiores muy sucios",
+ note:["rule","El equipo contaminado JAMÁS toca el siguiente auto. Niveles: detallado normal = enjuague y limpieza básica · pelo de mascota = limpieza completa de aspiradora, mangueras y cepillos · moho = DESINFECCIÓN completa de todo lo que tocó el auto · interior muy sucio = limpieza completa a criterio."],
+ flow:[
+   {n:"Desechar lo contaminado primero", t:"5 min", who:"Técnico", steps:[
+     ["Vaciar el depósito o bolsa de la aspiradora en una bolsa de plástico SELLADA, lejos del equipo limpio.","2 min","Residuos sellados","Vaciarla junto al equipo limpio (esparce esporas)"],
+     ["Desechar guantes, toallas desechables y filtros de un solo uso. Microfibras usadas en moho: apartarlas para lavar por separado, o a la basura si quedaron muy manchadas.","3 min","Nada contaminado se queda en el área",""]]},
+   {n:"Aspiradora — cuerpo, manguera y accesorios", t:"10 min", who:"Técnico", steps:[
+     ["Cuerpo con APC y microfibra. Depósito lavable: enjuagar y rociar desinfectante; secar por completo antes de armar. Cambiar el filtro si el trabajo fue de moho.","4 min","Aspiradora limpia por dentro y fuera",""],
+     ["Manguera: APC por dentro y por fuera. En moho: desinfectante a través de la manguera, dejar actuar y ventilar.","3 min","",""],
+     ["Cepillos y boquillas: enjuagar, tallar con APC en cerdas y ranuras (ahí se acumula el pelo). En moho: remojo en desinfectante diluido, enjuagar y secar al aire. NO guardar húmedo.","3 min","Accesorios sin pelo ni residuo","Guardar accesorios mojados"]]},
+   {n:"Vaporizador", t:"5 min", who:"Técnico", steps:[
+     ["Drenar el tanque después de CADA uso: nunca guardarlo con agua adentro (acumula sarro y moho en las líneas y acorta la vida de la máquina).","2 min","Tanque vacío",""],
+     ["Accesorios: enjuagar con agua limpia; en moho, limpiar con peróxido, dejar actuar unos minutos, enjuagar y secar. Correr un ciclo corto solo con agua limpia para purgar las líneas.","3 min","Líneas purgadas",""]]},
+   {n:"Inyección-succión (extractor)", t:"5 min", who:"Técnico", steps:[
+     ["Vaciar y enjuagar el tanque de agua sucia tras CADA uso: el agua sucia guardada cría moho y bacterias DENTRO de la máquina.","3 min","Tanque de recuperación limpio","Dejar el agua sucia hasta mañana"],
+     ["Purgar manguera y boquilla con agua limpia, limpiar el exterior con APC y dejar el tanque ABIERTO a que seque.","2 min","Secando con el tanque abierto",""]]},
+   {n:"Cepillos, herramientas chicas y compresor", t:"5 min", who:"Técnico", steps:[
+     ["Todos los cepillos (suaves, de taladro, de pelo de mascota): enjuagar, trabajar APC en las cerdas con los dedos y enjuagar bien. Nunca guardarlos con producto en las cerdas (las degrada).","3 min","Cerdas limpias",""],
+     ["Herramientas chicas reutilizables: APC después de cada trabajo; en moho, peróxido y secar al aire. Desechables a la basura.","1 min","",""],
+     ["Compresor: drenar la humedad del tanque con regularidad (humedad acumulada = óxido y contaminación).","1 min","",""]]},
+   {n:"Microfibras", t:"5 min", who:"Técnico",
+    note:["info","Código de colores por tipo de trabajo (p. ej. un color exclusivo para trabajos contaminados) es la forma más fácil de evitar contaminación cruzada."], steps:[
+     ["Separar las toallas de moho/contaminación del resto ANTES de lavar. Lavarlas en caliente con detergente desinfectante.","—","Lavadas por separado en caliente","Revolver todas las toallas en una carga"],
+     ["Toalla usada directo sobre moho y muy manchada: a la basura, no se relava.","—","","Reusar una toalla de moho"],
+     ["NUNCA suavizante en microfibra: tapa la fibra y deja de limpiar.","—","","Suavizante en la lavada"]]}
+ ]},
+{cat:"Reglas y seguridad", id:"apertura-cierre", ico:"🌅", title:"Apertura y cierre del taller", total:"15 min + 20 min", who:"Todo el equipo", prod:"Rutina diaria · preparar mañana hoy",
+ note:["info","Un taller preparado nunca arranca el día buscando cosas. Esta rutina es la diferencia entre una operación profesional y una reactiva."],
+ flow:[
+   {n:"Cierre del día — trabajos", t:"5 min", who:"Encargado", steps:[
+     ["Checklist de calidad enviado al grupo por CADA auto del día, con sus fotos de antes/después.","—","Evidencia completa del día",""],
+     ["Pagos confirmados: efectivo reportado al encargado; transferencias CONFIRMADAS como recibidas, nunca asumidas.","—","Caja cuadrada","Asumir que la transferencia llegó"]]},
+   {n:"Cierre del día — microfibras", t:"5 min", who:"Todo el equipo",
+    note:["rule","Toallas sucias FUERA del área de trabajo cada noche, sin excepción: una toalla húmeda encerrada cría moho, y una toalla con moho sobre el auto de un cliente es inaceptable."], steps:[
+     ["Toallas sucias embolsadas y a lavar cada noche. Toallas limpias listas y en su lugar para mañana.","5 min","Mañana arranca con toallas limpias","Dejar toallas húmedas amontonadas"]]},
+   {n:"Cierre del día — productos", t:"5 min", who:"Técnico", steps:[
+     ["Rellenar los atomizadores desde los garrafones CADA noche: todos llenos, no «ahí la llevan».","4 min","Atomizadores llenos para mañana","Rellenar a medio trabajo al día siguiente"],
+     ["Garrafón a ¼ o menos: avisar al encargado ESE día con el nombre del producto.","1 min","Compra avisada a tiempo","Avisar cuando ya se acabó"]]},
+   {n:"Cierre del día — equipo y área", t:"5 min", who:"Técnico", steps:[
+     ["Compresor drenado · vaporizador vaciado · inyección-succión vaciada y enjuagada · pads lavados si hubo corrección · baterías de pulidora cargando.","4 min","Equipo listo y sin agua guardada","Guardar máquinas con agua o pads sucios"],
+     ["Piso barrido, herramienta en su lugar, sin basura. Llaves de clientes en su tablero seguro.","1 min","Área lista para abrir",""]]},
+   {n:"Noche anterior / al abrir — la agenda", t:"10 min", who:"Encargado",
+    note:["rule","Si mañana hay cerámico, corrección, moho, ozono o pelo de mascota: confirmar HOY que el producto y el equipo están listos. Arrancar un trabajo especial sin el equipo no es problema de material: es de profesionalismo."], steps:[
+     ["Revisar la agenda de mañana (Tablero del Taller / citas): qué autos, qué servicios, qué extras y notas especiales.","5 min","Día de mañana claro para todos","Enterarse del cerámico cuando llega el auto"],
+     ["Confirmar producto y equipo de los trabajos especiales: coating suficiente, pads correctos, máquina lista.","5 min","Todo listo antes de que llegue el auto",""]]},
+   {n:"Semanal (lunes al abrir)", t:"20 min", who:"Encargado", steps:[
+     ["Levantar y PROBAR cada equipo: pulidora, aspiradora, vaporizador, inyección-succión, compresor, hidrolavadora.","10 min","Fallas detectadas antes de necesitar el equipo","Descubrir la falla con el auto en el taller"],
+     ["Revisar pads (corte, pulido, acabado): limpios, completos y organizados.","5 min","",""],
+     ["Inventario rápido de productos: reportar lo que anda bajo ANTES de que empiece la semana. Daños al equipo o al taller: reportados el mismo día.","5 min","Semana cubierta",""]]}
+ ]},
 {cat:"Reglas y seguridad", id:"diluciones", ico:"⚗️", title:"Tabla de diluciones", total:"Referencia", who:"Todo el equipo", prod:"Diluciones y usos de químicos", dilu:true, flow:[]},
 ];
 
 /* ===== Render ===== */
 const $=s=>document.querySelector(s);
 const home=$("#home"), detail=$("#detail");
-const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧","Reglas y seguridad":"📋"};
+const CAT_ICON={"Cerámicos":"🛡️","Pulido":"✨","Interior":"🧽","Paquete máximo":"🏆","Adicionales":"🔧","Interior especializado":"🫧","Reglas y seguridad":"📋"};
 
-const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales","Reglas y seguridad"];
+const CATS=["Cerámicos","Pulido","Interior","Paquete máximo","Adicionales","Interior especializado","Reglas y seguridad"];
 let activeCat="all", query="";
 
 function renderChips(){
